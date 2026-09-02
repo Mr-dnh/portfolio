@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import styles from "./IntroReveal.module.css";
 
@@ -8,39 +8,31 @@ const PANEL_COUNT = 8;
 const panels = Array.from({ length: PANEL_COUNT }, (_, index) => index);
 
 export function IntroReveal() {
-  const rootRef = useRef<HTMLElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
   const panelRefs = useRef<HTMLDivElement[]>([]);
-  const [isRevealed, setIsRevealed] = useState(false);
 
   useLayoutEffect(() => {
     const root = rootRef.current;
 
-    if (!root) {
-      return;
-    }
+    if (!root) return;
 
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (mediaQuery.matches) {
-      setIsRevealed(true);
+    if (reduceMotion) {
+      gsap.set(panelRefs.current, { yPercent: -105 });
       return;
     }
 
     const context = gsap.context(() => {
-      gsap.set(panelRefs.current, { yPercent: 0 });
-
       const timeline = gsap.timeline({
         delay: 0.5,
-        defaults: {
-          ease: "power4.inOut",
-        },
-        onComplete: () => setIsRevealed(true),
+        defaults: { ease: "power4.inOut" },
       });
 
       timeline.to(panelRefs.current, {
         yPercent: -105,
-        duration: 1.65,
-        stagger: 0.12,
+        duration: 1.6,
+        stagger: 0.11,
       });
     }, root);
 
@@ -48,25 +40,19 @@ export function IntroReveal() {
   }, []);
 
   return (
-    <main ref={rootRef} className={styles.intro}>
-      <div className={styles.hero} aria-hidden="true" />
-      <div
-        className={styles.panels}
-        aria-hidden="true"
-        inert={isRevealed ? true : undefined}
-      >
+    <div ref={rootRef} className={styles.intro} aria-hidden="true">
+      <div className={styles.hero} />
+      <div className={styles.panels}>
         {panels.map((panel) => (
           <div
             className={styles.panel}
             key={panel}
             ref={(element) => {
-              if (element) {
-                panelRefs.current[panel] = element;
-              }
+              if (element) panelRefs.current[panel] = element;
             }}
           />
         ))}
       </div>
-    </main>
+    </div>
   );
 }
