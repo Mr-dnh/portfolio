@@ -49,7 +49,7 @@ export function ThreeField() {
       eye.add(white);
 
       const iris = new THREE.Mesh(irisGeometry, irisMaterial);
-      iris.position.z = 1.04;
+      iris.position.set(0, 0, 1.04);
       eye.add(iris);
 
       const pupil = new THREE.Mesh(pupilGeometry, pupilMaterial);
@@ -132,8 +132,9 @@ export function ThreeField() {
       eyes.rotation.x = pointer.y * 0.08;
 
       eyeMeshes.forEach(({ iris, pupil, highlight }) => {
-        iris.position.x = followX;
-        iris.position.y = followY;
+        // Keep each iris/cornea optically centered; only the pupil tracks the pointer.
+        iris.position.x = 0;
+        iris.position.y = 0;
         pupil.position.x = followX;
         pupil.position.y = followY;
         highlight.position.x = followX - 0.09;
