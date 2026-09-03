@@ -18,18 +18,18 @@ export function ProjectCard({ number, title, type, description, preview }: Proje
     if (!card || event.pointerType === "touch") return;
 
     const rect = card.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 48;
+    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 20;
 
-    card.style.setProperty("--mouse-x", `${x}`);
-    card.style.setProperty("--mouse-y", `${y}`);
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
   };
 
   const resetPointer = () => {
     const card = cardRef.current;
     if (!card) return;
-    card.style.setProperty("--mouse-x", "0");
-    card.style.setProperty("--mouse-y", "0");
+    card.style.setProperty("--mouse-x", "0px");
+    card.style.setProperty("--mouse-y", "0px");
   };
 
   return (
