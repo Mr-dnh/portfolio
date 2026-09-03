@@ -22,7 +22,6 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
     const state = { value: 0 };
     let target = 0;
     let locked = false;
-    let currentIndex = 0;
 
     const wrap = (value: number, length: number) => {
       const result = value % length;
@@ -54,12 +53,11 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
       if (locked) return;
       locked = true;
       target += direction;
-      currentIndex = wrap(Math.round(target), sections.length);
-      announce(currentIndex);
+      announce(wrap(Math.round(target), sections.length));
 
       gsap.to(state, {
         value: target,
-        duration: reduceMotion ? 0 : 1.05,
+        duration: reduceMotion ? 0 : 0.95,
         ease: "power4.inOut",
         overwrite: true,
         onUpdate: render,
@@ -82,8 +80,8 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
       tolerance: 18,
       wheelSpeed: 1,
       preventDefault: true,
-      onDown: () => go(-1),
-      onUp: () => go(1),
+      onDown: () => go(1),
+      onUp: () => go(-1),
     });
 
     const keydown = (event: KeyboardEvent) => {
