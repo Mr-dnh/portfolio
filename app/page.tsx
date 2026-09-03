@@ -1,5 +1,5 @@
 import { IntroReveal } from "@/components/intro/IntroReveal";
-import { ScrollReveal } from "@/components/scroll/ScrollReveal";
+import { InfiniteScroll } from "@/components/scroll/InfiniteScroll";
 import { Hero } from "@/components/hero/Hero";
 import { About } from "@/components/about/About";
 import { Projects } from "@/components/projects/Projects";
@@ -11,16 +11,16 @@ export default function Home() {
   return (
     <>
       <IntroReveal />
-      <ScrollReveal />
-
-      <main className="portfolio-shell">
-        <Hero />
-        <About />
-        <Projects />
-        <Experiment />
-        <Contact />
-        <End />
-      </main>
+      <InfiniteScroll>
+        <main className="portfolio-shell">
+          <Hero />
+          <About />
+          <Projects />
+          <Experiment />
+          <Contact />
+          <End />
+        </main>
+      </InfiniteScroll>
     </>
   );
 }
