@@ -1,26 +1,6 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+import { ThreeField } from "@/components/three/ThreeField";
 
 export function Experiment() {
-  const orbRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const orb = orbRef.current;
-    if (!orb) return;
-
-    const move = (event: PointerEvent) => {
-      const x = (event.clientX / window.innerWidth - 0.5) * 32;
-      const y = (event.clientY / window.innerHeight - 0.5) * 32;
-
-      orb.style.setProperty("--orb-x", `${x}px`);
-      orb.style.setProperty("--orb-y", `${y}px`);
-    };
-
-    window.addEventListener("pointermove", move, { passive: true });
-    return () => window.removeEventListener("pointermove", move);
-  }, []);
-
   return (
     <section className="experiment-section" aria-labelledby="experiment-title">
       <div className="section-label">
@@ -33,17 +13,15 @@ export function Experiment() {
           <p className="experiment-eyebrow">INTERACTIVE STUDY / 001</p>
           <h2 id="experiment-title">Code can feel <em>alive.</em></h2>
           <p>
-            A small playground for interaction, depth, and motion. Move your
-            cursor through the space and let the field react.
+            A real-time WebGL field built with Three.js. Move through the space
+            and the geometry responds with subtle depth and motion.
           </p>
         </div>
 
-        <div className="experiment-canvas" aria-hidden="true">
-          <div className="experiment-grid" />
-          <div ref={orbRef} className="experiment-orb" />
-          <div className="experiment-ring experiment-ring-one" />
-          <div className="experiment-ring experiment-ring-two" />
-          <span className="experiment-coordinate">X / Y — LIVE</span>
+        <div className="experiment-canvas">
+          <div className="experiment-grid" aria-hidden="true" />
+          <ThreeField />
+          <span className="experiment-coordinate" aria-hidden="true">THREE / WEBGL — LIVE</span>
         </div>
       </div>
     </section>
