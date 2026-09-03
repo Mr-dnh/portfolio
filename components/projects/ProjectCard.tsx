@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type PointerEvent } from "react";
 
 interface ProjectCardProps {
   number: string;
@@ -12,7 +12,7 @@ interface ProjectCardProps {
 export function ProjectCard({ number, title, type, description }: ProjectCardProps) {
   const cardRef = useRef<HTMLElement>(null);
 
-  const handlePointerMove = (event: React.PointerEvent<HTMLElement>) => {
+  const handlePointerMove = (event: PointerEvent<HTMLElement>) => {
     const card = cardRef.current;
     if (!card || event.pointerType === "touch") return;
 
