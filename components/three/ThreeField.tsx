@@ -12,58 +12,87 @@ export function ThreeField() {
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-    camera.position.set(0, 0, 8);
+    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+    camera.position.set(0, 0, 7.5);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+      powerPreference: "high-performance",
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
 
-    const group = new THREE.Group();
-    scene.add(group);
+    const orb = new THREE.Group();
+    scene.add(orb);
 
-    const geometry = new THREE.IcosahedronGeometry(2.25, 2);
-    const material = new THREE.MeshBasicMaterial({
-      color: 0x9eb2ff,
+    const orbGeometry = new THREE.SphereGeometry(1.25, 48, 48);
+    const orbMaterial = new THREE.MeshBasicMaterial({
+      color: 0x7288ff,
+      transparent: true,
+      opacity: 0.34,
+    });
+    const orbMesh = new THREE.Mesh(orbGeometry, orbMaterial);
+    orb.add(orbMesh);
+
+    const coreGeometry = new THREE.SphereGeometry(0.76, 40, 40);
+    const coreMaterial = new THREE.MeshBasicMaterial({
+      color: 0xc8d2ff,
+      transparent: true,
+      opacity: 0.72,
+    });
+    const core = new THREE.Mesh(coreGeometry, coreMaterial);
+    orb.add(core);
+
+    const wireGeometry = new THREE.IcosahedronGeometry(1.5, 2);
+    const wireMaterial = new THREE.MeshBasicMaterial({
+      color: 0xa9b8ff,
       wireframe: true,
       transparent: true,
-      opacity: 0.24,
+      opacity: 0.2,
     });
-    const shell = new THREE.Mesh(geometry, material);
-    group.add(shell);
+    const wire = new THREE.Mesh(wireGeometry, wireMaterial);
+    orb.add(wire);
 
-    const glowGeometry = new THREE.IcosahedronGeometry(1.72, 2);
-    const glowMaterial = new THREE.MeshBasicMaterial({
-      color: 0x6f87ff,
+    const ringGeometry = new THREE.TorusGeometry(1.85, 0.012, 8, 160);
+    const ringMaterial = new THREE.MeshBasicMaterial({
+      color: 0xb9c6ff,
       transparent: true,
-      opacity: 0.055,
-      wireframe: true,
+      opacity: 0.42,
     });
-    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
-    group.add(glow);
 
-    const pointsGeometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(520 * 3);
-    for (let i = 0; i < 520; i += 1) {
-      const radius = 3.1 + Math.random() * 2.8;
+    const ringOne = new THREE.Mesh(ringGeometry, ringMaterial);
+    ringOne.rotation.x = Math.PI * 0.5;
+    orb.add(ringOne);
+
+    const ringTwo = new THREE.Mesh(ringGeometry.clone(), ringMaterial.clone());
+    ringTwo.rotation.x = Math.PI * 0.32;
+    ringTwo.rotation.z = Math.PI * 0.18;
+    orb.add(ringTwo);
+
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particleCount = 420;
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount; i += 1) {
+      const radius = 2.7 + Math.random() * 2.4;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
       positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
       positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       positions[i * 3 + 2] = radius * Math.cos(phi);
     }
-    pointsGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
-    const pointsMaterial = new THREE.PointsMaterial({
+    const particlesMaterial = new THREE.PointsMaterial({
       color: 0xb9c6ff,
-      size: 0.018,
+      size: 0.022,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.5,
       sizeAttenuation: true,
     });
-    const points = new THREE.Points(pointsGeometry, pointsMaterial);
-    scene.add(points);
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
 
     const pointer = new THREE.Vector2();
     const target = new THREE.Vector2();
@@ -87,14 +116,16 @@ export function ThreeField() {
 
     const render = (time: number) => {
       if (disposed) return;
-      pointer.lerp(target, 0.045);
+      pointer.lerp(target, 0.055);
 
-      group.rotation.y += reduceMotion ? 0.001 : 0.0022;
-      group.rotation.x += reduceMotion ? 0.0004 : 0.0009;
-      group.rotation.x += (pointer.y * 0.18 - group.rotation.x) * 0.015;
-      group.rotation.y += (pointer.x * 0.22 - group.rotation.y) * 0.015;
-      points.rotation.y = time * 0.000018;
-      points.rotation.x = pointer.y * 0.05;
+      const idleY = time * 0.00018;
+      orb.rotation.y = idleY + pointer.x * 0.16;
+      orb.rotation.x = Math.sin(time * 0.00022) * 0.08 + pointer.y * 0.1;
+      ringOne.rotation.z = time * 0.00022;
+      ringTwo.rotation.y = time * -0.00016;
+      ringTwo.rotation.x = Math.PI * 0.32 + pointer.y * 0.08;
+      particles.rotation.y = time * 0.000018;
+      particles.rotation.x = pointer.y * 0.04;
 
       renderer.render(scene, camera);
       frame = requestAnimationFrame(render);
@@ -111,12 +142,18 @@ export function ThreeField() {
       cancelAnimationFrame(frame);
       observer.disconnect();
       window.removeEventListener("pointermove", move);
-      geometry.dispose();
-      material.dispose();
-      glowGeometry.dispose();
-      glowMaterial.dispose();
-      pointsGeometry.dispose();
-      pointsMaterial.dispose();
+      orbGeometry.dispose();
+      orbMaterial.dispose();
+      coreGeometry.dispose();
+      coreMaterial.dispose();
+      wireGeometry.dispose();
+      wireMaterial.dispose();
+      ringGeometry.dispose();
+      ringMaterial.dispose();
+      ringTwo.geometry.dispose();
+      (ringTwo.material as THREE.Material).dispose();
+      particlesGeometry.dispose();
+      particlesMaterial.dispose();
       renderer.dispose();
       renderer.domElement.remove();
     };
