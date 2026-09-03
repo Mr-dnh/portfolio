@@ -14,13 +14,13 @@ export function ScrollReveal() {
     const sections = gsap.utils.toArray<HTMLElement>(
       ".portfolio-shell > section:not(.hero-section)"
     );
-    const timelines: gsap.core.Timeline[] = [];
+    const contexts: gsap.Context[] = [];
 
     sections.forEach((section) => {
       const label = section.querySelector<HTMLElement>(".section-label");
       const content = Array.from(
         section.querySelectorAll<HTMLElement>(
-          ".about-heading-wrap, .about-copy, .projects-intro, .project-row, .experiment-copy, .experiment-canvas, .contact-content, .contact-note"
+          ".about-heading-wrap, .about-copy, .projects-intro, .project-row, .experiment-copy, .experiment-canvas, .contact-content, .contact-note, .end-stage, .end-footer"
         )
       );
       const targets = [label, ...content].filter(
@@ -29,46 +29,50 @@ export function ScrollReveal() {
 
       if (!targets.length) return;
 
-      gsap.set(targets, { autoAlpha: 0, y: 42 });
+      const context = gsap.context(() => {
+        gsap.set(targets, { autoAlpha: 0, y: 48 });
 
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top 78%",
-          once: true,
-        },
-      });
-
-      if (label) {
-        timeline.to(label, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.65,
-          ease: "power3.out",
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 78%",
+            once: true,
+          },
         });
-      }
 
-      if (content.length) {
-        timeline.to(
-          content,
-          {
+        if (label) {
+          timeline.to(label, {
             autoAlpha: 1,
             y: 0,
-            duration: 0.85,
-            stagger: 0.08,
+            duration: 0.65,
             ease: "power3.out",
-          },
-          "-=0.3"
-        );
-      }
+          });
+        }
 
-      timelines.push(timeline);
+        if (content.length) {
+          timeline.to(
+            content,
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.9,
+              stagger: 0.08,
+              ease: "power3.out",
+            },
+            "-=0.3"
+          );
+        }
+      }, section);
+
+      contexts.push(context);
     });
 
-    ScrollTrigger.refresh();
+    const refresh = () => ScrollTrigger.refresh();
+    requestAnimationFrame(refresh);
 
     return () => {
-      timelines.forEach((timeline) => timeline.kill());
+      contexts.forEach((context) => context.revert());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
