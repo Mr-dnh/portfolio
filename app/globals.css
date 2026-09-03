@@ -19,3 +19,118 @@ body {
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.portfolio-shell {
+  position: relative;
+  z-index: 0;
+  min-height: 100svh;
+  background: #050505;
+}
+
+.hero-section {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-section::before {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  content: "";
+  background:
+    radial-gradient(circle at 76% 32%, rgb(255 255 255 / 0.07), transparent 22rem),
+    radial-gradient(circle at 20% 78%, rgb(255 255 255 / 0.035), transparent 20rem),
+    #050505;
+}
+
+.hero-section::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background: linear-gradient(180deg, transparent 50%, rgb(0 0 0 / 0.38));
+  pointer-events: none;
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.48);
+}
+
+.hero-content {
+  width: min(100%, 110rem);
+  margin: auto 0;
+  padding: clamp(4rem, 12vh, 9rem) 0;
+}
+
+.hero-kicker {
+  margin: 0 0 clamp(1rem, 2vw, 2rem);
+  font-size: clamp(0.7rem, 1vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.58);
+}
+
+.hero-content h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(4.5rem, 15vw, 15rem);
+  font-weight: 700;
+  letter-spacing: -0.075em;
+  line-height: 0.78;
+  text-transform: uppercase;
+}
+
+.hero-description {
+  max-width: 34rem;
+  margin: clamp(2rem, 5vw, 4rem) 0 0;
+  font-size: clamp(0.95rem, 1.3vw, 1.25rem);
+  line-height: 1.5;
+  color: rgb(255 255 255 / 0.52);
+}
+
+.hero-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.hero-scroll > span {
+  display: inline-block;
+  font-size: 1rem;
+  transition: transform 220ms ease;
+}
+
+.hero-scroll:hover > span {
+  transform: translateY(0.2rem);
+}
+
+@media (max-width: 640px) {
+  .hero-meta-top span:last-child {
+    display: none;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(4rem, 20vw, 7rem);
+    line-height: 0.82;
+  }
+
+  .hero-description {
+    max-width: 22rem;
+  }
+}
