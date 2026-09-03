@@ -120,7 +120,96 @@ body {
   transform: translateY(0.2rem);
 }
 
-@media (max-width: 640px) {
+.about-section {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  background: #080808;
+}
+
+.section-label,
+.about-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.42);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+  gap: clamp(3rem, 10vw, 12rem);
+  align-items: end;
+  width: min(100%, 110rem);
+  margin: auto 0;
+  padding: clamp(5rem, 12vh, 9rem) 0;
+}
+
+.about-eyebrow {
+  margin: 0 0 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.42);
+}
+
+.about-heading-wrap h2 {
+  max-width: 11ch;
+  margin: 0;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.9;
+}
+
+.about-heading-wrap h2 em {
+  color: rgb(255 255 255 / 0.42);
+  font-style: normal;
+}
+
+.about-copy {
+  max-width: 32rem;
+  justify-self: end;
+}
+
+.about-copy p {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.55;
+  color: rgb(255 255 255 / 0.62);
+}
+
+.about-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 2.5rem;
+}
+
+.about-stack span {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.56);
+}
+
+.about-footer {
+  padding-top: 1rem;
+  border-top: 1px solid rgb(255 255 255 / 0.08);
+}
+
+@media (max-width: 760px) {
   .hero-meta-top span:last-child {
     display: none;
   }
@@ -132,5 +221,23 @@ body {
 
   .hero-description {
     max-width: 22rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .about-copy {
+    justify-self: start;
+  }
+
+  .about-heading-wrap h2 {
+    max-width: 9ch;
+    font-size: clamp(3.25rem, 15vw, 6rem);
+  }
+
+  .about-footer span:last-child {
+    text-align: right;
   }
 }
