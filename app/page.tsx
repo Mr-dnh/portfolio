@@ -5,6 +5,7 @@ import { About } from "@/components/about/About";
 import { Projects } from "@/components/projects/Projects";
 import { Experiment } from "@/components/experiment/Experiment";
 import { Contact } from "@/components/contact/Contact";
+import { End } from "@/components/end/End";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Projects />
         <Experiment />
         <Contact />
+        <End />
       </main>
     </>
   );
