@@ -53,13 +53,24 @@ body { font-family: Arial, Helvetica, sans-serif; color: #f5f5f5; }
 .experiment-copy > p:last-child { max-width: 28rem; margin: 2.5rem 0 0; font-size: 1rem; line-height: 1.6; color: rgb(255 255 255 / 0.5); }
 .experiment-canvas { position: relative; min-height: min(70vw, 44rem); overflow: hidden; border: 1px solid rgb(160 180 255 / 0.22); background: radial-gradient(circle at 50% 50%, rgb(115 145 255 / 0.16), transparent 30%), #07090e; }
 .experiment-grid { position: absolute; inset: -50%; background-image: linear-gradient(rgb(140 165 255 / 0.11) 1px, transparent 1px), linear-gradient(90deg, rgb(140 165 255 / 0.11) 1px, transparent 1px); background-size: 3rem 3rem; transform: perspective(500px) rotateX(62deg) translateY(12%); transform-origin: center bottom; }
-.experiment-orb { position: absolute; top: 50%; left: 50%; width: clamp(7rem, 13vw, 12rem); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #9eb2ff 13%, #556cff 35%, #101735 67%, transparent 70%); box-shadow: 0 0 3rem rgb(100 125 255 / 0.48), 0 0 9rem rgb(100 125 255 / 0.22); transform: translate(-50%, -50%); transition: transform 100ms linear; }
+.experiment-orb { --orb-x: 0px; --orb-y: 0px; position: absolute; top: 50%; left: 50%; width: clamp(7rem, 13vw, 12rem); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #9eb2ff 13%, #556cff 35%, #101735 67%, transparent 70%); box-shadow: 0 0 3rem rgb(100 125 255 / 0.48), 0 0 9rem rgb(100 125 255 / 0.22); transform: translate(calc(-50% + var(--orb-x)), calc(-50% + var(--orb-y))); transition: transform 100ms linear; }
 .experiment-ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); }
 .experiment-ring-one { width: 56%; aspect-ratio: 1; border: 2px solid rgb(175 195 255 / 0.5); box-shadow: 0 0 2rem rgb(100 125 255 / 0.16), inset 0 0 2rem rgb(100 125 255 / 0.06); animation: experiment-spin 18s linear infinite; }
 .experiment-ring-two { width: 78%; aspect-ratio: 1; border: 1px solid rgb(175 195 255 / 0.3); box-shadow: 0 0 3rem rgb(100 125 255 / 0.12); transform: translate(-50%, -50%) rotate(35deg) scaleY(0.38); animation: experiment-spin-reverse 24s linear infinite; }
 .experiment-coordinate { position: absolute; right: 1rem; bottom: 1rem; font-size: 0.6rem; letter-spacing: 0.16em; color: rgb(180 195 255 / 0.55); }
 @keyframes experiment-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
 @keyframes experiment-spin-reverse { to { transform: translate(-50%, -50%) rotate(-325deg) scaleY(0.38); } }
+
+.contact-section { min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(1.25rem, 3vw, 2.5rem); border-top: 1px solid rgb(255 255 255 / 0.12); background: #111; overflow: hidden; }
+.contact-content { width: min(100%, 110rem); margin: auto 0; padding: clamp(5rem, 10vh, 8rem) 0; }
+.contact-eyebrow { margin: 0 0 2rem; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgb(255 255 255 / 0.42); }
+.contact-content h2 { max-width: 10ch; margin: 0; font-size: clamp(4rem, 10vw, 11rem); font-weight: 500; letter-spacing: -0.075em; line-height: 0.82; }
+.contact-content h2 em { color: rgb(255 255 255 / 0.35); font-style: normal; }
+.contact-cta { --cta-x: 0px; --cta-y: 0px; display: inline-flex; align-items: center; justify-content: space-between; gap: 4rem; width: min(100%, 34rem); margin-top: clamp(3rem, 7vw, 6rem); padding: 1.2rem 0; border-top: 1px solid rgb(255 255 255 / 0.28); border-bottom: 1px solid rgb(255 255 255 / 0.28); color: #f5f5f5; text-decoration: none; transform: translate3d(var(--cta-x), var(--cta-y), 0); transition: transform 180ms ease, border-color 180ms ease; }
+.contact-cta:hover { border-color: rgb(255 255 255 / 0.7); }
+.contact-cta span:first-child { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; }
+.contact-cta span:last-child { font-size: 1.5rem; }
+.contact-note { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid rgb(255 255 255 / 0.08); font-size: 0.65rem; letter-spacing: 0.18em; color: rgb(255 255 255 / 0.38); }
 
 @media (max-width: 760px) {
   .hero-meta-top span:last-child { display: none; }
@@ -73,4 +84,6 @@ body { font-family: Arial, Helvetica, sans-serif; color: #f5f5f5; }
   .project-type { display: none; }
   .experiment-stage { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 0; }
   .experiment-canvas { min-height: 70vw; }
+  .contact-content h2 { max-width: 9ch; font-size: clamp(3.75rem, 16vw, 7rem); }
+  .contact-note { flex-direction: column; }
 }
