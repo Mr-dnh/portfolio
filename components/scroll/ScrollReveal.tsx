@@ -1,66 +1,76 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function ScrollReveal() {
-  const rootRef = useRef<HTMLDivElement>(null);
-
   useLayoutEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const context = gsap.context(() => {
-      const sections = gsap.utils.toArray<HTMLElement>(".portfolio-shell > section:not(.hero-section)");
+    const sections = gsap.utils.toArray<HTMLElement>(
+      ".portfolio-shell > section:not(.hero-section)"
+    );
+    const timelines: gsap.core.Timeline[] = [];
 
-      sections.forEach((section) => {
-        const label = section.querySelector<HTMLElement>(".section-label");
-        const content = section.querySelectorAll<HTMLElement>(
+    sections.forEach((section) => {
+      const label = section.querySelector<HTMLElement>(".section-label");
+      const content = Array.from(
+        section.querySelectorAll<HTMLElement>(
           ".about-heading-wrap, .about-copy, .projects-intro, .project-row, .experiment-copy, .experiment-canvas, .contact-content, .contact-note"
-        );
+        )
+      );
+      const targets = [label, ...content].filter(
+        (element): element is HTMLElement => Boolean(element)
+      );
 
-        gsap.set([label, ...content].filter(Boolean), {
-          autoAlpha: 0,
-          y: 40,
-        });
+      if (!targets.length) return;
 
-        const timeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top 72%",
-            once: true,
-          },
-        });
+      gsap.set(targets, { autoAlpha: 0, y: 42 });
 
-        if (label) {
-          timeline.to(label, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.7,
-            ease: "power3.out",
-          });
-        }
-
-        if (content.length) {
-          timeline.to(content, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.9,
-            stagger: 0.09,
-            ease: "power3.out",
-          }, "-=0.35");
-        }
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 78%",
+          once: true,
+        },
       });
-    }, root);
 
-    return () => context.revert();
+      if (label) {
+        timeline.to(label, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.65,
+          ease: "power3.out",
+        });
+      }
+
+      if (content.length) {
+        timeline.to(
+          content,
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.85,
+            stagger: 0.08,
+            ease: "power3.out",
+          },
+          "-=0.3"
+        );
+      }
+
+      timelines.push(timeline);
+    });
+
+    ScrollTrigger.refresh();
+
+    return () => {
+      timelines.forEach((timeline) => timeline.kill());
+    };
   }, []);
 
-  return <div ref={rootRef} aria-hidden="true" />;
+  return null;
 }
