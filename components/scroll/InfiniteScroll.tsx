@@ -27,6 +27,9 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
       return result < 0 ? result + length : result;
     };
 
+    const getRevealElements = (section: HTMLElement) =>
+      Array.from(section.children).filter((element): element is HTMLElement => element instanceof HTMLElement);
+
     const render = () => {
       const count = sections.length;
       sections.forEach((section, index) => {
@@ -42,11 +45,15 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
       });
     };
 
-    const reveal = (index: number) => {
-      const section = sections[index];
-      if (!section) return;
+    const prepareReveal = (index: number) => {
+      const elements = getRevealElements(sections[index]);
+      if (!elements.length || reduceMotion) return;
+      gsap.killTweensOf(elements);
+      gsap.set(elements, { autoAlpha: 0, y: 28 });
+    };
 
-      const elements = Array.from(section.children) as HTMLElement[];
+    const reveal = (index: number) => {
+      const elements = getRevealElements(sections[index]);
       if (!elements.length) return;
 
       gsap.killTweensOf(elements);
@@ -56,32 +63,30 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
         return;
       }
 
-      gsap.fromTo(
-        elements,
-        { autoAlpha: 0, y: 28 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.72,
-          stagger: 0.09,
-          ease: "power3.out",
-          overwrite: true,
-        },
-      );
+      gsap.to(elements, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.72,
+        stagger: 0.12,
+        ease: "power3.out",
+        overwrite: true,
+      });
     };
 
-    const announce = (index: number) => {
+    const activate = (index: number) => {
       sections.forEach((section, sectionIndex) => {
         section.toggleAttribute("data-active", sectionIndex === index);
       });
-      reveal(index);
     };
 
     const go = (direction: 1 | -1) => {
       if (locked) return;
       locked = true;
       target += direction;
-      announce(wrap(Math.round(target), sections.length));
+
+      const nextIndex = wrap(Math.round(target), sections.length);
+      prepareReveal(nextIndex);
+      activate(nextIndex);
 
       gsap.to(state, {
         value: target,
@@ -94,6 +99,7 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
           state.value = normalized;
           target = normalized;
           render();
+          reveal(normalized);
           locked = false;
         },
       });
@@ -124,8 +130,18 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
       go(deltaY > 0 ? 1 : -1);
     };
 
+    sections.forEach((section) => {
+      const elements = getRevealElements(section);
+      if (reduceMotion) {
+        gsap.set(elements, { autoAlpha: 1, y: 0 });
+      } else {
+        gsap.set(elements, { autoAlpha: 0, y: 28 });
+      }
+    });
+
     render();
-    announce(0);
+    activate(0);
+    reveal(0);
 
     viewport.addEventListener("wheel", onWheel, { passive: false });
     viewport.addEventListener("pointerdown", onPointerDown, { passive: true });
@@ -149,7 +165,7 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
       viewport.removeEventListener("pointerdown", onPointerDown);
       viewport.removeEventListener("pointerup", onPointerUp);
       window.removeEventListener("keydown", keydown);
-      sections.forEach((section) => gsap.killTweensOf(Array.from(section.children)));
+      sections.forEach((section) => gsap.killTweensOf(getRevealElements(section)));
       gsap.killTweensOf(state);
     };
   }, []);
