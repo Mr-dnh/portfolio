@@ -19,7 +19,7 @@ export function IntroReveal() {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduceMotion) {
-      gsap.set(panelRefs.current, { yPercent: -105 });
+      gsap.set(root, { autoAlpha: 0 });
       return;
     }
 
@@ -29,11 +29,13 @@ export function IntroReveal() {
         defaults: { ease: "power4.inOut" },
       });
 
-      timeline.to(panelRefs.current, {
-        yPercent: -105,
-        duration: 1.6,
-        stagger: 0.11,
-      });
+      timeline
+        .to(panelRefs.current, {
+          yPercent: -105,
+          duration: 1.6,
+          stagger: 0.11,
+        })
+        .set(root, { autoAlpha: 0 });
     }, root);
 
     return () => context.revert();
