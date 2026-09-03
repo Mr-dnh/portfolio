@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import styles from "./Hero.module.css";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -13,28 +14,30 @@ export function Hero() {
     if (!section || !glow) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let started = false;
 
     const animate = () => {
+      if (started) return;
+      started = true;
+      const elements = section.querySelectorAll<HTMLElement>("[data-hero-reveal]");
+
       if (reduceMotion) {
-        gsap.set(section.querySelectorAll("[data-hero-reveal]"), { autoAlpha: 1, y: 0 });
+        gsap.set(elements, { autoAlpha: 1, y: 0 });
         return;
       }
 
-      const elements = section.querySelectorAll<HTMLElement>("[data-hero-reveal]");
       gsap.set(elements, { autoAlpha: 0, y: 36 });
       gsap.timeline({ defaults: { ease: "power3.out" } })
-        .to(elements[0], { autoAlpha: 1, y: 0, duration: 0.8 })
-        .to(elements[1], { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.35")
-        .to(elements[2], { autoAlpha: 1, y: 0, duration: 1.05 }, "-=0.25")
-        .to(elements[3], { autoAlpha: 1, y: 0, duration: 0.8 }, "-=0.45")
-        .fromTo(section.querySelector(".hero-scroll"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.7 }, "-=0.2");
+        .to(elements[0], { autoAlpha: 1, y: 0, duration: 0.7 })
+        .to(elements[1], { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.45")
+        .to(elements[2], { autoAlpha: 1, y: 0, duration: 1 }, "-=0.35")
+        .to(elements[3], { autoAlpha: 1, y: 0, duration: 0.75 }, "-=0.45")
+        .to(section.querySelector(".hero-scroll"), { autoAlpha: 1, duration: 0.65 }, "-=0.2");
     };
 
     const onIntroComplete = () => animate();
     window.addEventListener("portfolio:intro-complete", onIntroComplete);
-
-    const introIsGone = document.querySelector(".intro") === null;
-    if (introIsGone) animate();
+    if (!document.querySelector(".intro")) animate();
 
     let frame = 0;
     const move = (event: PointerEvent) => {
@@ -49,7 +52,6 @@ export function Hero() {
     };
 
     window.addEventListener("pointermove", move, { passive: true });
-
     return () => {
       window.removeEventListener("portfolio:intro-complete", onIntroComplete);
       window.removeEventListener("pointermove", move);
@@ -59,24 +61,26 @@ export function Hero() {
 
   return (
     <section ref={sectionRef} className="hero-section" aria-labelledby="hero-title">
-      <div ref={glowRef} className="hero-glow" aria-hidden="true" />
-      <div className="hero-grid" aria-hidden="true" />
-      <div className="hero-meta hero-meta-top" aria-hidden="true">
+      <div ref={glowRef} className={styles.glow} aria-hidden="true" />
+      <div className={styles.grid} aria-hidden="true" />
+      <div className={styles.meta} aria-hidden="true">
         <span data-hero-reveal>PORTFOLIO / 2026</span>
         <span data-hero-reveal>BASED IN AZERBAIJAN</span>
       </div>
 
-      <div className="hero-content">
-        <p className="hero-kicker" data-hero-reveal>FRONTEND DEVELOPER</p>
-        <h1 id="hero-title" data-hero-reveal>AIDIN DNH</h1>
-        <p className="hero-description" data-hero-reveal>
+      <div className={styles.content}>
+        <p className={styles.kicker} data-hero-reveal>FRONTEND DEVELOPER</p>
+        <h1 id="hero-title" className={styles.title} data-hero-reveal>AIDIN DNH</h1>
+        <p className={styles.description} data-hero-reveal>
           I build thoughtful digital experiences with code, motion, and a sharp eye for detail.
         </p>
       </div>
 
-      <div className="hero-meta hero-meta-bottom" aria-hidden="true">
+      <div className={styles.meta} aria-hidden="true">
         <span data-hero-reveal>01 / 06</span>
-        <span className="hero-scroll">SCROLL <span>↓</span></span>
+        <span className={`${styles.scroll} hero-scroll`}>
+          SCROLL <span className={styles.scrollIcon}>↓</span>
+        </span>
       </div>
     </section>
   );
