@@ -13,7 +13,6 @@ export function IntroReveal() {
 
   useLayoutEffect(() => {
     const root = rootRef.current;
-
     if (!root) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -24,16 +23,13 @@ export function IntroReveal() {
     }
 
     const context = gsap.context(() => {
-      const timeline = gsap.timeline({
-        delay: 0.5,
-        defaults: { ease: "power4.inOut" },
-      });
+      gsap.set(panelRefs.current, { yPercent: 0 });
 
-      timeline
+      gsap.timeline({ delay: 0.35, defaults: { ease: "power3.inOut" } })
         .to(panelRefs.current, {
           yPercent: -105,
-          duration: 1.6,
-          stagger: 0.11,
+          duration: 1.45,
+          stagger: 0.1,
         })
         .set(root, { autoAlpha: 0 });
     }, root);
@@ -43,7 +39,6 @@ export function IntroReveal() {
 
   return (
     <div ref={rootRef} className={styles.intro} aria-hidden="true">
-      <div className={styles.hero} />
       <div className={styles.panels}>
         {panels.map((panel) => (
           <div
@@ -52,7 +47,9 @@ export function IntroReveal() {
             ref={(element) => {
               if (element) panelRefs.current[panel] = element;
             }}
-          />
+          >
+            <span />
+          </div>
         ))}
       </div>
     </div>
