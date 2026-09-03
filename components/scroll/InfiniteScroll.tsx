@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, type ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
 import { gsap } from "gsap";
 
 type InfiniteScrollProps = { children: ReactNode };
@@ -42,10 +42,39 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
       });
     };
 
+    const reveal = (index: number) => {
+      const section = sections[index];
+      if (!section) return;
+
+      const elements = Array.from(section.children) as HTMLElement[];
+      if (!elements.length) return;
+
+      gsap.killTweensOf(elements);
+
+      if (reduceMotion) {
+        gsap.set(elements, { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      gsap.fromTo(
+        elements,
+        { autoAlpha: 0, y: 28 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.72,
+          stagger: 0.09,
+          ease: "power3.out",
+          overwrite: true,
+        },
+      );
+    };
+
     const announce = (index: number) => {
       sections.forEach((section, sectionIndex) => {
         section.toggleAttribute("data-active", sectionIndex === index);
       });
+      reveal(index);
     };
 
     const go = (direction: 1 | -1) => {
@@ -92,8 +121,6 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
 
       if (Math.abs(deltaY) < 45 || Math.abs(deltaY) < Math.abs(deltaX) * 1.15) return;
 
-      // Finger movement follows the same direction as wheel intent:
-      // swipe down => next section, swipe up => previous section.
       go(deltaY > 0 ? 1 : -1);
     };
 
@@ -122,6 +149,7 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
       viewport.removeEventListener("pointerdown", onPointerDown);
       viewport.removeEventListener("pointerup", onPointerUp);
       window.removeEventListener("keydown", keydown);
+      sections.forEach((section) => gsap.killTweensOf(Array.from(section.children)));
       gsap.killTweensOf(state);
     };
   }, []);
