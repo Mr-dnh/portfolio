@@ -3,12 +3,9 @@
   background: #000;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html,
-body {
+html, body {
   width: 100%;
   min-height: 100%;
   margin: 0;
@@ -16,9 +13,7 @@ body {
   background: #000;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+body { font-family: Arial, Helvetica, sans-serif; }
 
 .portfolio-shell {
   position: relative;
@@ -39,10 +34,7 @@ body {
 }
 
 .hero-section::before {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  content: "";
+  position: absolute; inset: 0; z-index: -2; content: "";
   background:
     radial-gradient(circle at 76% 32%, rgb(255 255 255 / 0.07), transparent 22rem),
     radial-gradient(circle at 20% 78%, rgb(255 255 255 / 0.035), transparent 20rem),
@@ -50,15 +42,12 @@ body {
 }
 
 .hero-section::after {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  content: "";
+  position: absolute; inset: 0; z-index: -1; content: "";
   background: linear-gradient(180deg, transparent 50%, rgb(0 0 0 / 0.38));
   pointer-events: none;
 }
 
-.hero-meta {
+.hero-meta, .section-label, .about-footer {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -67,7 +56,7 @@ body {
   letter-spacing: 0.18em;
   line-height: 1.2;
   text-transform: uppercase;
-  color: rgb(255 255 255 / 0.48);
+  color: rgb(255 255 255 / 0.42);
 }
 
 .hero-content {
@@ -104,21 +93,9 @@ body {
   color: rgb(255 255 255 / 0.52);
 }
 
-.hero-scroll {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-
-.hero-scroll > span {
-  display: inline-block;
-  font-size: 1rem;
-  transition: transform 220ms ease;
-}
-
-.hero-scroll:hover > span {
-  transform: translateY(0.2rem);
-}
+.hero-scroll { display: inline-flex; align-items: center; gap: 0.65rem; }
+.hero-scroll > span { display: inline-block; font-size: 1rem; transition: transform 220ms ease; }
+.hero-scroll:hover > span { transform: translateY(0.2rem); }
 
 .about-section {
   min-height: 100svh;
@@ -128,19 +105,6 @@ body {
   padding: clamp(1.25rem, 3vw, 2.5rem);
   border-top: 1px solid rgb(255 255 255 / 0.1);
   background: #080808;
-}
-
-.section-label,
-.about-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  line-height: 1.2;
-  text-transform: uppercase;
-  color: rgb(255 255 255 / 0.42);
 }
 
 .about-grid {
@@ -153,7 +117,7 @@ body {
   padding: clamp(5rem, 12vh, 9rem) 0;
 }
 
-.about-eyebrow {
+.about-eyebrow, .projects-eyebrow {
   margin: 0 0 1.5rem;
   font-size: 0.7rem;
   letter-spacing: 0.28em;
@@ -161,7 +125,7 @@ body {
   color: rgb(255 255 255 / 0.42);
 }
 
-.about-heading-wrap h2 {
+.about-heading-wrap h2, .projects-intro h2 {
   max-width: 11ch;
   margin: 0;
   font-size: clamp(3.5rem, 8vw, 8rem);
@@ -170,16 +134,12 @@ body {
   line-height: 0.9;
 }
 
-.about-heading-wrap h2 em {
+.about-heading-wrap h2 em, .projects-intro h2 em {
   color: rgb(255 255 255 / 0.42);
   font-style: normal;
 }
 
-.about-copy {
-  max-width: 32rem;
-  justify-self: end;
-}
-
+.about-copy { max-width: 32rem; justify-self: end; }
 .about-copy p {
   margin: 0 0 1.5rem;
   font-size: clamp(1rem, 1.3vw, 1.2rem);
@@ -187,13 +147,7 @@ body {
   color: rgb(255 255 255 / 0.62);
 }
 
-.about-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 2.5rem;
-}
-
+.about-stack { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 2.5rem; }
 .about-stack span {
   padding: 0.65rem 0.8rem;
   border: 1px solid rgb(255 255 255 / 0.14);
@@ -204,40 +158,61 @@ body {
   color: rgb(255 255 255 / 0.56);
 }
 
-.about-footer {
-  padding-top: 1rem;
-  border-top: 1px solid rgb(255 255 255 / 0.08);
+.about-footer { padding-top: 1rem; border-top: 1px solid rgb(255 255 255 / 0.08); }
+
+.projects-section {
+  min-height: 100svh;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  background: #050505;
 }
 
+.projects-intro {
+  width: min(100%, 110rem);
+  padding: clamp(5rem, 12vh, 9rem) 0 clamp(4rem, 8vh, 7rem);
+}
+
+.projects-intro h2 { max-width: 8ch; }
+
+.projects-list { width: min(100%, 110rem); border-top: 1px solid rgb(255 255 255 / 0.14); }
+
+.project-row {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) minmax(12rem, 0.35fr) 2rem;
+  gap: 1.5rem;
+  align-items: center;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+  transition: padding 350ms ease, background 350ms ease;
+}
+
+.project-row:hover { padding-left: 1rem; padding-right: 1rem; background: rgb(255 255 255 / 0.025); }
+.project-number, .project-type { font-size: 0.65rem; letter-spacing: 0.15em; color: rgb(255 255 255 / 0.35); }
+.project-main h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.project-main p {
+  max-width: 34rem;
+  margin: 0.7rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgb(255 255 255 / 0.42);
+}
+.project-type { justify-self: end; text-align: right; }
+.project-arrow { font-size: 1.3rem; color: rgb(255 255 255 / 0.6); transition: transform 350ms ease; }
+.project-row:hover .project-arrow { transform: translate(0.2rem, -0.2rem); }
+
 @media (max-width: 760px) {
-  .hero-meta-top span:last-child {
-    display: none;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(4rem, 20vw, 7rem);
-    line-height: 0.82;
-  }
-
-  .hero-description {
-    max-width: 22rem;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 3.5rem;
-  }
-
-  .about-copy {
-    justify-self: start;
-  }
-
-  .about-heading-wrap h2 {
-    max-width: 9ch;
-    font-size: clamp(3.25rem, 15vw, 6rem);
-  }
-
-  .about-footer span:last-child {
-    text-align: right;
-  }
+  .hero-meta-top span:last-child { display: none; }
+  .hero-content h1 { font-size: clamp(4rem, 20vw, 7rem); line-height: 0.82; }
+  .hero-description { max-width: 22rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+  .about-copy { justify-self: start; }
+  .about-heading-wrap h2 { max-width: 9ch; font-size: clamp(3.25rem, 15vw, 6rem); }
+  .about-footer span:last-child { text-align: right; }
+  .project-row { grid-template-columns: 2rem minmax(0, 1fr) 1.5rem; gap: 0.8rem; }
+  .project-type { display: none; }
 }
