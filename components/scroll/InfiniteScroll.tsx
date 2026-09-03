@@ -1,8 +1,7 @@
 "use client";
 
-import { useLayoutEffect, useRef, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, type ReactNode } from "react";
 import { gsap } from "gsap";
-import { Observer } from "gsap/Observer";
 
 type InfiniteScrollProps = { children: ReactNode };
 
@@ -17,11 +16,11 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
     const sections = Array.from(viewport.querySelectorAll<HTMLElement>(".portfolio-shell > section"));
     if (!sections.length) return;
 
-    gsap.registerPlugin(Observer);
-
     const state = { value: 0 };
     let target = 0;
     let locked = false;
+    let touchStartY: number | null = null;
+    let touchStartX: number | null = null;
 
     const wrap = (value: number, length: number) => {
       const result = value % length;
@@ -49,7 +48,7 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
       });
     };
 
-    const go = (direction: number) => {
+    const go = (direction: 1 | -1) => {
       if (locked) return;
       locked = true;
       target += direction;
@@ -71,18 +70,39 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
       });
     };
 
+    const onWheel = (event: WheelEvent) => {
+      event.preventDefault();
+      if (Math.abs(event.deltaY) < 8) return;
+      go(event.deltaY > 0 ? 1 : -1);
+    };
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (event.pointerType === "mouse") return;
+      touchStartX = event.clientX;
+      touchStartY = event.clientY;
+    };
+
+    const onPointerUp = (event: PointerEvent) => {
+      if (event.pointerType === "mouse" || touchStartY === null || touchStartX === null) return;
+
+      const deltaX = event.clientX - touchStartX;
+      const deltaY = event.clientY - touchStartY;
+      touchStartX = null;
+      touchStartY = null;
+
+      if (Math.abs(deltaY) < 45 || Math.abs(deltaY) < Math.abs(deltaX) * 1.15) return;
+
+      // Finger movement follows the same direction as wheel intent:
+      // swipe down => next section, swipe up => previous section.
+      go(deltaY > 0 ? 1 : -1);
+    };
+
     render();
     announce(0);
 
-    const observer = Observer.create({
-      target: viewport,
-      type: "wheel,touch,pointer",
-      tolerance: 18,
-      wheelSpeed: 1,
-      preventDefault: true,
-      onDown: () => go(1),
-      onUp: () => go(-1),
-    });
+    viewport.addEventListener("wheel", onWheel, { passive: false });
+    viewport.addEventListener("pointerdown", onPointerDown, { passive: true });
+    viewport.addEventListener("pointerup", onPointerUp, { passive: true });
 
     const keydown = (event: KeyboardEvent) => {
       if (["ArrowDown", "PageDown", " "].includes(event.key)) {
@@ -98,7 +118,9 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
     window.addEventListener("keydown", keydown);
 
     return () => {
-      observer.kill();
+      viewport.removeEventListener("wheel", onWheel);
+      viewport.removeEventListener("pointerdown", onPointerDown);
+      viewport.removeEventListener("pointerup", onPointerUp);
       window.removeEventListener("keydown", keydown);
       gsap.killTweensOf(state);
     };
