@@ -1,4 +1,5 @@
 import { IntroReveal } from "@/components/intro/IntroReveal";
+import { ScrollReveal } from "@/components/scroll/ScrollReveal";
 import { About } from "@/components/about/About";
 import { Projects } from "@/components/projects/Projects";
 import { Experiment } from "@/components/experiment/Experiment";
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <>
       <IntroReveal />
+      <ScrollReveal />
 
       <main className="portfolio-shell">
         <section className="hero-section" aria-labelledby="hero-title">
