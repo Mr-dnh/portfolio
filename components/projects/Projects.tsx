@@ -6,18 +6,21 @@ const projects = [
     title: "AIDIN COMMERCE",
     type: "ECOMMERCE / NEXT.JS",
     description: "A modular storefront focused on performance, structure, and a clean shopping experience.",
+    preview: "commerce" as const,
   },
   {
     number: "02",
     title: "INTERACTIVE LAB",
     type: "EXPERIMENT / WEBGL",
     description: "An experimental space for motion, interaction, and immersive frontend ideas.",
+    preview: "lab" as const,
   },
   {
     number: "03",
     title: "DIGITAL SYSTEM",
     type: "INTERFACE / TYPESCRIPT",
     description: "A precise interface system where typography, hierarchy, and interaction work as one.",
+    preview: "system" as const,
   },
 ];
 
