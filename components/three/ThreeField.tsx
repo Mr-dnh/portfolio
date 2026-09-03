@@ -29,7 +29,6 @@ export function ThreeField() {
 
     const eyeGeometry = new THREE.SphereGeometry(1.18, 48, 48);
     const eyeMaterial = new THREE.MeshBasicMaterial({ color: 0xf4f6ff });
-
     const irisGeometry = new THREE.SphereGeometry(0.48, 40, 40);
     const irisMaterial = new THREE.MeshBasicMaterial({ color: 0x657dff });
     const pupilGeometry = new THREE.SphereGeometry(0.22, 32, 32);
@@ -62,7 +61,7 @@ export function ThreeField() {
       eye.add(highlight);
 
       eyes.add(eye);
-      return { eye, iris, pupil, highlight };
+      return { iris, pupil, highlight };
     });
 
     const orbitalGeometry = new THREE.TorusGeometry(3.1, 0.012, 8, 180);
@@ -114,27 +113,27 @@ export function ThreeField() {
 
     const move = (event: PointerEvent) => {
       if (reduceMotion) return;
+
+      // Browser coordinates grow downward; Three.js coordinates grow upward.
       target.x = (event.clientX / window.innerWidth - 0.5) * 2;
-      target.y = (event.clientY / window.innerHeight - 0.5) * 2;
+      target.y = -(event.clientY / window.innerHeight - 0.5) * 2;
     };
 
     const render = (time: number) => {
       if (disposed) return;
       pointer.lerp(target, 0.12);
 
-      const followX = pointer.x * 0.34;
-      const followY = pointer.y * 0.24;
+      const followX = THREE.MathUtils.clamp(pointer.x * 0.42, -0.42, 0.42);
+      const followY = THREE.MathUtils.clamp(pointer.y * 0.30, -0.30, 0.30);
 
       eyes.position.x = pointer.x * 0.28;
       eyes.position.y = pointer.y * 0.18;
       eyes.rotation.y = pointer.x * 0.11;
-      eyes.rotation.x = -pointer.y * 0.08;
+      eyes.rotation.x = pointer.y * 0.08;
 
       eyeMeshes.forEach(({ iris, pupil, highlight }) => {
-        const irisX = pointer.x * 0.42;
-        const irisY = -pointer.y * 0.3;
-        iris.position.x = irisX;
-        iris.position.y = irisY;
+        iris.position.x = followX;
+        iris.position.y = followY;
         pupil.position.x = followX;
         pupil.position.y = followY;
         highlight.position.x = followX - 0.09;
