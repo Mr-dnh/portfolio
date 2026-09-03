@@ -19,6 +19,7 @@ export function IntroReveal() {
 
     if (reduceMotion) {
       gsap.set(root, { autoAlpha: 0 });
+      window.dispatchEvent(new CustomEvent("portfolio:intro-complete"));
       return;
     }
 
@@ -30,6 +31,9 @@ export function IntroReveal() {
           yPercent: -105,
           duration: 1.45,
           stagger: 0.1,
+        })
+        .call(() => {
+          window.dispatchEvent(new CustomEvent("portfolio:intro-complete"));
         })
         .set(root, { autoAlpha: 0 });
     }, root);
