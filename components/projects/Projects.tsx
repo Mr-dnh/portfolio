@@ -1,3 +1,4 @@
+import styles from "./Projects.module.css";
 import { ProjectCard } from "./ProjectCard";
 
 const projects = [
@@ -26,7 +27,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section className="projects-section" aria-labelledby="projects-title">
+    <section className={`projects-section ${styles.projectsSection}`} aria-labelledby="projects-title">
       <div className="section-label">
         <span>03 / 06</span>
         <span>SELECTED WORKS</span>
