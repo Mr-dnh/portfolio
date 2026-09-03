@@ -1,3 +1,5 @@
+import { ProjectCard } from "./ProjectCard";
+
 const projects = [
   {
     number: "01",
@@ -36,15 +38,7 @@ export function Projects() {
 
       <div className="projects-list">
         {projects.map((project) => (
-          <article className="project-row" key={project.number}>
-            <span className="project-number">{project.number}</span>
-            <div className="project-main">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-            </div>
-            <span className="project-type">{project.type}</span>
-            <span className="project-arrow" aria-hidden="true">↗</span>
-          </article>
+          <ProjectCard key={project.number} {...project} />
         ))}
       </div>
     </section>
