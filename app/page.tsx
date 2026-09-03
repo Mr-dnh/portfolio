@@ -1,4 +1,5 @@
 import { IntroReveal } from "@/components/intro/IntroReveal";
+import { About } from "@/components/about/About";
 
 export default function Home() {
   return (
@@ -26,6 +27,8 @@ export default function Home() {
             <span className="hero-scroll">SCROLL <span>↓</span></span>
           </div>
         </section>
+
+        <About />
       </main>
     </>
   );
