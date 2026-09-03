@@ -12,7 +12,9 @@ export function Experiment() {
     const move = (event: PointerEvent) => {
       const x = (event.clientX / window.innerWidth - 0.5) * 32;
       const y = (event.clientY / window.innerHeight - 0.5) * 32;
-      orb.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+
+      orb.style.setProperty("--orb-x", `${x}px`);
+      orb.style.setProperty("--orb-y", `${y}px`);
     };
 
     window.addEventListener("pointermove", move, { passive: true });
