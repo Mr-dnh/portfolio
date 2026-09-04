@@ -1,3 +1,23 @@
+const skills = [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Flex & Grid",
+  "Tailwind",
+  "Responsive Design",
+  "MUI",
+  "Mobile-First",
+  "Git & GitHub",
+  "APIs",
+  "State Management",
+  "SEO",
+  "Design Patterns",
+  "Design Systems",
+];
+
 export function About() {
   return (
     <section className="about-section" aria-labelledby="about-title">
@@ -8,36 +28,34 @@ export function About() {
 
       <div className="about-grid">
         <div className="about-heading-wrap">
-          <p className="about-eyebrow">A LITTLE CONTEXT</p>
+          <p className="about-eyebrow">FRONT-END DEVELOPER</p>
           <h2 id="about-title">
-            I turn ideas into <em>digital experiences.</em>
+            Clean interfaces, <em>real projects.</em>
           </h2>
         </div>
 
         <div className="about-copy">
           <p>
-            I&apos;m a frontend developer focused on building interfaces that feel
-            considered, responsive, and alive.
+            I&apos;m a growing front-end developer focused on clean layouts,
+            modern colors, precise design implementation, and learning through
+            real projects.
           </p>
           <p>
-            My approach sits between engineering and design: clean architecture,
-            strong typography, purposeful motion, and attention to the details
-            people usually overlook.
+            My work centers on responsive interfaces, component structure,
+            APIs, state management, and modern React and Next.js development.
           </p>
 
-          <div className="about-stack" aria-label="Core skills">
-            <span>Next.js</span>
-            <span>React</span>
-            <span>TypeScript</span>
-            <span>GSAP</span>
-            <span>Three.js</span>
+          <div className="about-stack" aria-label="Skills and knowledge">
+            {skills.map((skill) => (
+              <span key={skill}>{skill}</span>
+            ))}
           </div>
         </div>
       </div>
 
       <div className="about-footer">
-        <span>BASED IN AZERBAIJAN</span>
-        <span>AVAILABLE FOR SELECT PROJECTS</span>
+        <span>FRONT-END / REACT / NEXT.JS</span>
+        <span>MOBILE-FIRST / RESPONSIVE</span>
       </div>
     </section>
   );
