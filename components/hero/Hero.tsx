@@ -32,12 +32,11 @@ export function Hero() {
         .to(elements[1], { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.45")
         .to(elements[2], { autoAlpha: 1, y: 0, duration: 1 }, "-=0.35")
         .to(elements[3], { autoAlpha: 1, y: 0, duration: 0.75 }, "-=0.45")
-        .to(section.querySelector(".hero-scroll"), { autoAlpha: 1, duration: 0.65 }, "-=0.2");
+        .to(section.querySelector("[data-hero-scroll]"), { autoAlpha: 1, duration: 0.65 }, "-=0.2");
     };
 
     const onIntroComplete = () => animate();
     window.addEventListener("portfolio:intro-complete", onIntroComplete);
-    if (!document.querySelector(".intro")) animate();
 
     let frame = 0;
     const move = (event: PointerEvent) => {
@@ -60,7 +59,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="hero-section" aria-labelledby="hero-title">
+    <section ref={sectionRef} className={styles.heroSection} aria-labelledby="hero-title">
       <div ref={glowRef} className={styles.glow} aria-hidden="true" />
       <div className={styles.grid} aria-hidden="true" />
       <div className={styles.meta} aria-hidden="true">
@@ -79,7 +78,7 @@ export function Hero() {
 
       <div className={styles.meta} aria-hidden="true">
         <span>01 / 06</span>
-        <span className={`${styles.scroll} hero-scroll`}>
+        <span className={styles.scroll} data-hero-scroll>
           SCROLL <span className={styles.scrollIcon}>↓</span>
         </span>
       </div>
