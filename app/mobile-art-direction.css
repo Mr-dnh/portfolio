@@ -2,6 +2,50 @@
   --cream: #c9b79f;
 }
 
+.project-row {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 2rem;
+  width: min(100%, 56rem);
+  margin-top: 2.5rem;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+  color: inherit;
+  text-decoration: none;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.contact-link span {
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  color: rgb(255 255 255 / 0.38);
+}
+
+.contact-link strong {
+  font-size: clamp(0.78rem, 1.2vw, 0.95rem);
+  font-weight: 500;
+  color: rgb(255 255 255 / 0.72);
+}
+
+.contact-link:hover {
+  border-color: rgb(201 183 159 / 0.5);
+}
+
+.contact-link:hover strong {
+  color: var(--cream);
+}
+
 /* Mobile is intentionally treated as a compact composition, not a scaled desktop. */
 @media (max-width: 760px) {
   .infinite-viewport,
@@ -188,6 +232,20 @@
   .contact-cta span:last-child {
     font-size: 1.2rem;
     color: var(--cream);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 1.25rem;
+  }
+
+  .contact-link {
+    padding: 0.65rem 0;
+  }
+
+  .contact-link strong {
+    font-size: 0.72rem;
   }
 
   .end-stage {
