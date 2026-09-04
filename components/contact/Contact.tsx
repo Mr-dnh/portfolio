@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import styles from "./Contact.module.css";
 
 const contacts = [
@@ -11,27 +8,6 @@ const contacts = [
 ];
 
 export function Contact() {
-  const ctaRef = useRef<HTMLAnchorElement>(null);
-
-  const handlePointerMove = (event: React.PointerEvent<HTMLAnchorElement>) => {
-    const cta = ctaRef.current;
-    if (!cta || event.pointerType === "touch") return;
-
-    const rect = cta.getBoundingClientRect();
-    const x = (event.clientX - rect.left - rect.width / 2) * 0.12;
-    const y = (event.clientY - rect.top - rect.height / 2) * 0.12;
-
-    cta.style.setProperty("--cta-x", `${x}px`);
-    cta.style.setProperty("--cta-y", `${y}px`);
-  };
-
-  const resetPointer = () => {
-    const cta = ctaRef.current;
-    if (!cta) return;
-    cta.style.setProperty("--cta-x", "0px");
-    cta.style.setProperty("--cta-y", "0px");
-  };
-
   return (
     <section className={styles.contactSection} aria-labelledby="contact-title">
       <div className="section-label">
@@ -44,26 +20,16 @@ export function Contact() {
         <h2 id="contact-title">
           Find me <em>here.</em>
         </h2>
+      </div>
 
-        <a
-          ref={ctaRef}
-          className={styles.cta}
-          href="mailto:aidin.dnh@gmail.com"
-          onPointerMove={handlePointerMove}
-          onPointerLeave={resetPointer}
-        >
-          <span>aidin.dnh@gmail.com</span>
-          <span aria-hidden="true">↗</span>
-        </a>
-
-        <div className={styles.grid} aria-label="Contact details">
-          {contacts.map((contact) => (
-            <a key={contact.label} href={contact.href} className={styles.link}>
-              <span>{contact.label}</span>
-              <strong>{contact.value}</strong>
-            </a>
-          ))}
-        </div>
+      <div className={styles.grid} aria-label="Contact details">
+        {contacts.map((contact) => (
+          <a key={contact.label} href={contact.href} className={styles.link}>
+            <span>{contact.label}</span>
+            <strong>{contact.value}</strong>
+            <span className={styles.arrow} aria-hidden="true">↗</span>
+          </a>
+        ))}
       </div>
 
       <div className={styles.note}>
