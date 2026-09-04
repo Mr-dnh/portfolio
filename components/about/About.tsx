@@ -38,13 +38,13 @@ export function About() {
 
         <div className={styles.copy}>
           <p>
-            I&apos;m a growing front-end developer focused on clean layouts,
-            modern colors, precise design implementation, and learning through
-            real projects.
-          </p>
-          <p>
             My work centers on responsive interfaces, component structure,
             APIs, state management, and modern React and Next.js development.
+          </p>
+          <p>
+            I also enjoy bringing interfaces to life with interactive code —
+            from cursor-driven motion and animated transitions to reactive
+            visual experiences that respond to the user.
           </p>
 
           <div className={styles.stack} aria-label="Skills and knowledge">
