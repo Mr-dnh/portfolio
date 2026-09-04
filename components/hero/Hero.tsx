@@ -69,10 +69,11 @@ export function Hero() {
       </div>
 
       <div className={styles.content}>
-        <p className={styles.kicker} data-hero-reveal>FRONTEND DEVELOPER</p>
+        <p className={styles.kicker} data-hero-reveal>FRONT-END DEVELOPER</p>
         <h1 id="hero-title" className={styles.title} data-hero-reveal>AIDIN DNH</h1>
         <p className={styles.description} data-hero-reveal>
-          I build thoughtful digital experiences with code, motion, and a sharp eye for detail.
+          A growing front-end developer focused on clean layouts, modern colors,
+          precise design implementation, and learning through real projects.
         </p>
       </div>
 
