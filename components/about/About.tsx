@@ -1,3 +1,5 @@
+import styles from "./About.module.css";
+
 const skills = [
   "HTML5",
   "CSS3",
@@ -20,21 +22,21 @@ const skills = [
 
 export function About() {
   return (
-    <section className="about-section" aria-labelledby="about-title">
+    <section className={styles.aboutSection} aria-labelledby="about-title">
       <div className="section-label">
         <span>02 / 06</span>
         <span>ABOUT</span>
       </div>
 
-      <div className="about-grid">
-        <div className="about-heading-wrap">
-          <p className="about-eyebrow">FRONT-END DEVELOPER</p>
+      <div className={styles.aboutGrid}>
+        <div className={styles.heading}>
+          <p className={styles.eyebrow}>FRONT-END DEVELOPER</p>
           <h2 id="about-title">
             Clean interfaces, <em>real projects.</em>
           </h2>
         </div>
 
-        <div className="about-copy">
+        <div className={styles.copy}>
           <p>
             I&apos;m a growing front-end developer focused on clean layouts,
             modern colors, precise design implementation, and learning through
@@ -45,7 +47,7 @@ export function About() {
             APIs, state management, and modern React and Next.js development.
           </p>
 
-          <div className="about-stack" aria-label="Skills and knowledge">
+          <div className={styles.stack} aria-label="Skills and knowledge">
             {skills.map((skill) => (
               <span key={skill}>{skill}</span>
             ))}
@@ -53,7 +55,7 @@ export function About() {
         </div>
       </div>
 
-      <div className="about-footer">
+      <div className={styles.footer}>
         <span>FRONT-END / REACT / NEXT.JS</span>
         <span>MOBILE-FIRST / RESPONSIVE</span>
       </div>
