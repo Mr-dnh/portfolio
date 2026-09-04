@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import styles from "./IntroReveal.module.css";
 
-const PANEL_COUNT = 5;
+const PANEL_COUNT = 8;
 const panels = Array.from({ length: PANEL_COUNT }, (_, index) => index);
 
 export function IntroReveal() {
@@ -30,11 +30,11 @@ export function IntroReveal() {
     const context = gsap.context(() => {
       gsap.set(panelRefs.current, { yPercent: 0 });
 
-      gsap.timeline({ delay: 0.15, defaults: { ease: "power2.inOut" } })
+      gsap.timeline({ delay: 0.35, defaults: { ease: "power2.inOut" } })
         .to(panelRefs.current, {
           yPercent: -105,
-          duration: 0.9,
-          stagger: 0.04,
+          duration: 1.45,
+          stagger: 0.1,
         })
         .call(completeIntro)
         .set(root, { autoAlpha: 0 });
