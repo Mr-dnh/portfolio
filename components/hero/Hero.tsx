@@ -23,6 +23,7 @@ export function Hero() {
 
       if (reduceMotion) {
         gsap.set(elements, { autoAlpha: 1, y: 0 });
+        gsap.set(section.querySelector("[data-hero-scroll]"), { autoAlpha: 1 });
         return;
       }
 
@@ -37,6 +38,11 @@ export function Hero() {
 
     const onIntroComplete = () => animate();
     window.addEventListener("portfolio:intro-complete", onIntroComplete);
+
+    const intro = document.querySelector<HTMLElement>("[data-intro-reveal]");
+    if (intro?.dataset.introComplete === "true" || !intro) {
+      animate();
+    }
 
     let frame = 0;
     const move = (event: PointerEvent) => {
