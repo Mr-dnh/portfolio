@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, type PointerEvent } from "react";
+import styles from "./Projects.module.css";
 
 interface ProjectCardProps {
   number: string;
@@ -8,10 +9,10 @@ interface ProjectCardProps {
   type: string;
   description: string;
   link: string;
-  preview: "commerce" | "lab" | "system";
+  image: string;
 }
 
-export function ProjectCard({ number, title, type, description, link, preview }: ProjectCardProps) {
+export function ProjectCard({ number, title, type, description, link, image }: ProjectCardProps) {
   const cardRef = useRef<HTMLAnchorElement>(null);
 
   const handlePointerMove = (event: PointerEvent<HTMLAnchorElement>) => {
@@ -36,8 +37,7 @@ export function ProjectCard({ number, title, type, description, link, preview }:
   return (
     <a
       ref={cardRef}
-      className="project-row"
-      data-preview={preview}
+      className={styles.projectRow}
       href={link}
       target="_blank"
       rel="noreferrer"
@@ -45,41 +45,19 @@ export function ProjectCard({ number, title, type, description, link, preview }:
       onPointerLeave={resetPointer}
       aria-label={`View ${title}`}
     >
-      <span className="project-number">{number}</span>
+      <span className={styles.projectNumber}>{number}</span>
 
-      <div className="project-main">
+      <div className={styles.projectMain}>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
 
-      <div className="project-preview" aria-hidden="true">
-        <div className="preview-frame">
-          {preview === "commerce" && (
-            <>
-              <div className="preview-nav"><span>AIDIN</span><i /></div>
-              <div className="preview-commerce-title">NEW<br />ARRIVALS</div>
-              <div className="preview-products"><b /><b /><b /></div>
-            </>
-          )}
-          {preview === "lab" && (
-            <>
-              <div className="preview-grid" />
-              <div className="preview-orb" />
-              <div className="preview-ring" />
-            </>
-          )}
-          {preview === "system" && (
-            <>
-              <div className="preview-system-label">SYSTEM / 03</div>
-              <div className="preview-system-title">TYPE<br /><em>01</em></div>
-              <div className="preview-lines"><i /><i /><i /><i /></div>
-            </>
-          )}
-        </div>
+      <div className={styles.projectPreview} aria-hidden="true">
+        <img src={image} alt="" loading="lazy" />
       </div>
 
-      <span className="project-type">{type}</span>
-      <span className="project-arrow" aria-hidden="true">↗</span>
+      <span className={styles.projectType}>{type}</span>
+      <span className={styles.projectArrow} aria-hidden="true">↗</span>
     </a>
   );
 }
