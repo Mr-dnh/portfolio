@@ -7,13 +7,14 @@ interface ProjectCardProps {
   title: string;
   type: string;
   description: string;
+  link: string;
   preview: "commerce" | "lab" | "system";
 }
 
-export function ProjectCard({ number, title, type, description, preview }: ProjectCardProps) {
-  const cardRef = useRef<HTMLElement>(null);
+export function ProjectCard({ number, title, type, description, link, preview }: ProjectCardProps) {
+  const cardRef = useRef<HTMLAnchorElement>(null);
 
-  const handlePointerMove = (event: PointerEvent<HTMLElement>) => {
+  const handlePointerMove = (event: PointerEvent<HTMLAnchorElement>) => {
     const card = cardRef.current;
     if (!card || event.pointerType === "touch") return;
 
@@ -33,12 +34,16 @@ export function ProjectCard({ number, title, type, description, preview }: Proje
   };
 
   return (
-    <article
+    <a
       ref={cardRef}
       className="project-row"
       data-preview={preview}
+      href={link}
+      target="_blank"
+      rel="noreferrer"
       onPointerMove={handlePointerMove}
       onPointerLeave={resetPointer}
+      aria-label={`View ${title}`}
     >
       <span className="project-number">{number}</span>
 
@@ -75,6 +80,6 @@ export function ProjectCard({ number, title, type, description, preview }: Proje
 
       <span className="project-type">{type}</span>
       <span className="project-arrow" aria-hidden="true">↗</span>
-    </article>
+    </a>
   );
 }
