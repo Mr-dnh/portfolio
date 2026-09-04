@@ -22,9 +22,7 @@ export function Experiment() {
 
         <div className={styles.canvas}>
           <div className={styles.grid} aria-hidden="true" />
-          <div className={styles.threeField}>
-            <ThreeField />
-          </div>
+          <ThreeField />
           <span className={styles.coordinate} aria-hidden="true">THREE / WEBGL — TRACKING</span>
         </div>
       </div>
