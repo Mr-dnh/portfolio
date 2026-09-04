@@ -4,23 +4,29 @@ import { ProjectCard } from "./ProjectCard";
 const projects = [
   {
     number: "01",
-    title: "AIDIN COMMERCE",
-    type: "ECOMMERCE / NEXT.JS",
-    description: "A modular storefront focused on performance, structure, and a clean shopping experience.",
+    title: "E-COMMERCE",
+    type: "NEXT.JS / ZUSTAND",
+    description:
+      "A responsive commerce website focused on route handling, themes and languages, and strong call-to-action design.",
+    link: "https://dn-commerce.vercel.app/",
     preview: "commerce" as const,
   },
   {
     number: "02",
-    title: "INTERACTIVE LAB",
-    type: "EXPERIMENT / WEBGL",
-    description: "An experimental space for motion, interaction, and immersive frontend ideas.",
+    title: "WEATHER APP",
+    type: "REACT / API",
+    description:
+      "A one-page React weather app demonstrating API connections and search queries.",
+    link: "https://dnh-weather.vercel.app/",
     preview: "lab" as const,
   },
   {
     number: "03",
-    title: "DIGITAL SYSTEM",
-    type: "INTERFACE / TYPESCRIPT",
-    description: "A precise interface system where typography, hierarchy, and interaction work as one.",
+    title: "DIGIKALA TEST",
+    type: "SASS / DOM",
+    description:
+      "A recreation of Digikala&apos;s first page with a complex menu, carousels, lists, and GIFs.",
+    link: "https://dn-digikala.vercel.app/",
     preview: "system" as const,
   },
 ];
@@ -34,9 +40,9 @@ export function Projects() {
       </div>
 
       <div className="projects-intro">
-        <p className="projects-eyebrow">SELECTED WORKS</p>
+        <p className="projects-eyebrow">PROJECTS SO FAR</p>
         <h2 id="projects-title">
-          A few things I&apos;ve <em>built.</em>
+          Real <em>lessons.</em>
         </h2>
       </div>
 
