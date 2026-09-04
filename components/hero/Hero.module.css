@@ -9,6 +9,11 @@
   isolation: isolate;
 }
 
+[data-hero-reveal] {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .glow {
   --hero-x: 0px;
   --hero-y: 0px;
@@ -99,10 +104,7 @@
 }
 
 @media (max-width: 760px) {
-  .heroSection {
-    padding: 1rem;
-  }
-
+  .heroSection { padding: 1rem; }
   .meta { flex-direction: column; gap: 0.5rem; }
   .meta span:last-child { align-self: flex-end; }
   .title { max-width: 9ch; font-size: clamp(4rem, 18vw, 8rem); }
