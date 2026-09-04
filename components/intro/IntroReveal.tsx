@@ -16,10 +16,14 @@ export function IntroReveal() {
     if (!root) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const completeIntro = () => {
+      root.dataset.introComplete = "true";
+      window.dispatchEvent(new CustomEvent("portfolio:intro-complete"));
+    };
 
     if (reduceMotion) {
       gsap.set(root, { autoAlpha: 0 });
-      window.dispatchEvent(new CustomEvent("portfolio:intro-complete"));
+      completeIntro();
       return;
     }
 
@@ -32,9 +36,7 @@ export function IntroReveal() {
           duration: 1.45,
           stagger: 0.1,
         })
-        .call(() => {
-          window.dispatchEvent(new CustomEvent("portfolio:intro-complete"));
-        })
+        .call(completeIntro)
         .set(root, { autoAlpha: 0 });
     }, root);
 
