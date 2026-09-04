@@ -7,16 +7,6 @@
   padding: clamp(1.25rem, 3vw, 2.5rem);
   overflow: hidden;
   isolation: isolate;
-  background: #050505;
-}
-
-.hero::after {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  content: "";
-  background: linear-gradient(180deg, transparent 48%, rgb(0 0 0 / 0.5));
-  pointer-events: none;
 }
 
 .glow {
@@ -26,8 +16,8 @@
   inset: -15%;
   z-index: -3;
   background:
-    radial-gradient(circle at calc(76% + var(--hero-x)) calc(28% + var(--hero-y)), rgb(255 255 255 / 0.1), transparent 18rem),
-    radial-gradient(circle at 18% 82%, rgb(255 255 255 / 0.045), transparent 24rem);
+    radial-gradient(circle at calc(76% + var(--hero-x)) calc(28% + var(--hero-y)), rgba(255, 255, 255, 0.247), transparent 18rem),
+    radial-gradient(circle at 18% 82%, rgba(255, 255, 255, 0.185), transparent 24rem);
   transition: transform 700ms cubic-bezier(.2,.8,.2,1);
   will-change: transform;
 }

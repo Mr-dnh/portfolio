@@ -65,20 +65,20 @@ export function Hero() {
       <div className={styles.grid} aria-hidden="true" />
       <div className={styles.meta} aria-hidden="true">
         <span data-hero-reveal>PORTFOLIO / 2026</span>
-        <span data-hero-reveal>BASED IN AZERBAIJAN</span>
+        <span data-hero-reveal>BASED IN RASHT</span>
       </div>
 
       <div className={styles.content}>
         <p className={styles.kicker} data-hero-reveal>FRONT-END DEVELOPER</p>
         <h1 id="hero-title" className={styles.title} data-hero-reveal>AIDIN DNH</h1>
-        <p className={styles.description} data-hero-reveal>
+        <p className={styles.description}>
           A growing front-end developer focused on clean layouts, modern colors,
           precise design implementation, and learning through real projects.
         </p>
       </div>
 
       <div className={styles.meta} aria-hidden="true">
-        <span data-hero-reveal>01 / 06</span>
+        <span>01 / 06</span>
         <span className={`${styles.scroll} hero-scroll`}>
           SCROLL <span className={styles.scrollIcon}>↓</span>
         </span>

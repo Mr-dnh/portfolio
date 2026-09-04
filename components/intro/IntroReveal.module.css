@@ -6,7 +6,7 @@
   height: 100dvh;
   overflow: hidden;
   pointer-events: none;
-  background: #020202;
+  background: #00000000;
 }
 
 .panels {
@@ -24,8 +24,6 @@
   height: 100%;
   overflow: hidden;
   background: linear-gradient(180deg, #0a0a0a 0%, #151515 48%, #050505 100%);
-  border-right: 1px solid rgb(255 255 255 / 0.13);
-  box-shadow: inset 1px 0 rgb(255 255 255 / 0.045);
   will-change: transform;
   transform: translate3d(0, 0, 0);
 }
@@ -42,10 +40,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   width: 1px;
   height: 20vh;
   background: rgb(255 255 255 / 0.2);
-  transform: translate(-50%, -50%);
 }
 
 .panel:nth-child(2n) { background: linear-gradient(180deg, #101010 0%, #1c1c1c 48%, #070707 100%); }
