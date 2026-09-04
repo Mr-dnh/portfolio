@@ -6,21 +6,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "@types/three": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "gsap": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "three": "latest",
-    "typescript": "latest"
+    "gsap": "3.15.0",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "three": "0.185.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "26.4.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.2",
+    "@types/three": "0.185.4",
+    "typescript": "5.9.3"
+  }
 }
