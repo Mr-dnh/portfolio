@@ -25,7 +25,7 @@ const projects = [
     title: "DIGIKALA TEST",
     type: "SASS / DOM",
     description:
-      "A recreation of Digikala&apos;s first page with a complex menu, carousels, lists, and GIFs.",
+      "A recreation of Digikala's first page with a complex menu, carousels, lists, and GIFs.",
     link: "https://dn-digikala.vercel.app/",
     preview: "system" as const,
   },
