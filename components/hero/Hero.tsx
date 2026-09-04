@@ -27,22 +27,20 @@ export function Hero() {
         return;
       }
 
-      gsap.set(elements, { autoAlpha: 0, y: 36 });
+      gsap.set(elements, { autoAlpha: 0, y: 24 });
       gsap.timeline({ defaults: { ease: "power3.out" } })
-        .to(elements[0], { autoAlpha: 1, y: 0, duration: 0.7 })
-        .to(elements[1], { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.45")
-        .to(elements[2], { autoAlpha: 1, y: 0, duration: 1 }, "-=0.35")
-        .to(elements[3], { autoAlpha: 1, y: 0, duration: 0.75 }, "-=0.45")
-        .to(section.querySelector("[data-hero-scroll]"), { autoAlpha: 1, duration: 0.65 }, "-=0.2");
+        .to(elements[0], { autoAlpha: 1, y: 0, duration: 0.4 })
+        .to(elements[1], { autoAlpha: 1, y: 0, duration: 0.4 }, "-=0.3")
+        .to(elements[2], { autoAlpha: 1, y: 0, duration: 0.5 }, "-=0.25")
+        .to(elements[3], { autoAlpha: 1, y: 0, duration: 0.5 }, "-=0.4")
+        .to(section.querySelector("[data-hero-scroll]"), { autoAlpha: 1, duration: 0.4 }, "-=0.2");
     };
 
     const onIntroComplete = () => animate();
     window.addEventListener("portfolio:intro-complete", onIntroComplete);
 
     const intro = document.querySelector<HTMLElement>("[data-intro-reveal]");
-    if (intro?.dataset.introComplete === "true" || !intro) {
-      animate();
-    }
+    if (intro?.dataset.introComplete === "true" || !intro) animate();
 
     let frame = 0;
     const move = (event: PointerEvent) => {
