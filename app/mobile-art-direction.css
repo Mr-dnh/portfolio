@@ -1,0 +1,223 @@
+:root {
+  --cream: #c9b79f;
+}
+
+/* Mobile is intentionally treated as a compact composition, not a scaled desktop. */
+@media (max-width: 760px) {
+  .infinite-viewport,
+  .portfolio-shell,
+  .portfolio-shell > section {
+    height: 100svh;
+    min-height: 100svh;
+  }
+
+  .section-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    color: rgb(201 183 159 / 0.58);
+  }
+
+  .about-section,
+  .projects-section,
+  .experiment-section,
+  .contact-section,
+  .end-section {
+    padding: 1rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    align-items: start;
+  }
+
+  .about-heading-wrap h2,
+  .projects-intro h2 {
+    max-width: 9ch;
+    font-size: clamp(3rem, 13vw, 5rem);
+    line-height: 0.86;
+  }
+
+  .about-eyebrow,
+  .projects-eyebrow,
+  .contact-eyebrow {
+    margin-bottom: 0.9rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+  }
+
+  .about-copy {
+    max-width: none;
+    justify-self: stretch;
+  }
+
+  .about-copy p {
+    margin-bottom: 0.9rem;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .about-stack {
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+  }
+
+  .about-stack span {
+    padding: 0.48rem 0.62rem;
+    font-size: 0.58rem;
+  }
+
+  .about-footer,
+  .contact-note,
+  .end-footer {
+    gap: 0.65rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.13em;
+  }
+
+  .projects-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects-intro {
+    padding: 2.25rem 0 1.25rem;
+  }
+
+  .projects-list {
+    display: grid;
+    grid-auto-rows: minmax(0, 1fr);
+    flex: 1;
+    min-height: 0;
+  }
+
+  .project-row {
+    grid-template-columns: 1.6rem minmax(0, 1fr) 1.2rem;
+    gap: 0.65rem;
+    min-height: 0;
+    padding: 0.65rem 0;
+  }
+
+  .project-number,
+  .project-type {
+    font-size: 0.55rem;
+  }
+
+  .project-main h3 {
+    font-size: clamp(1.25rem, 7vw, 2rem);
+    line-height: 0.95;
+  }
+
+  .project-main p,
+  .project-preview,
+  .project-type {
+    display: none;
+  }
+
+  .project-arrow {
+    font-size: 1rem;
+    color: var(--cream);
+  }
+
+  .experiment-stage {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 1rem;
+    min-height: calc(100svh - 2rem);
+    align-items: stretch;
+  }
+
+  .experiment-copy {
+    max-width: none;
+  }
+
+  .experiment-eyebrow {
+    margin-bottom: 0.8rem;
+    font-size: 0.58rem;
+  }
+
+  .experiment-copy h2 {
+    font-size: clamp(3.25rem, 15vw, 6rem);
+    line-height: 0.82;
+  }
+
+  .experiment-copy > p:last-child {
+    max-width: 24rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .experiment-canvas {
+    min-height: 0;
+    height: 100%;
+    border-color: rgb(201 183 159 / 0.2);
+  }
+
+  .experiment-coordinate {
+    right: 0.7rem;
+    bottom: 0.7rem;
+    font-size: 0.52rem;
+    color: rgb(201 183 159 / 0.58);
+  }
+
+  .contact-content {
+    padding: 2.5rem 0;
+  }
+
+  .contact-content h2 {
+    max-width: 9ch;
+    font-size: clamp(3.25rem, 15vw, 6rem);
+    line-height: 0.84;
+  }
+
+  .contact-cta {
+    width: 100%;
+    gap: 1rem;
+    margin-top: 2.25rem;
+    padding: 0.95rem 0;
+    border-color: rgb(201 183 159 / 0.42);
+  }
+
+  .contact-cta span:first-child {
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+  }
+
+  .contact-cta span:last-child {
+    font-size: 1.2rem;
+    color: var(--cream);
+  }
+
+  .end-stage {
+    padding: 2rem 0;
+  }
+
+  .end-stage h2 {
+    font-size: clamp(3.25rem, 15vw, 6rem);
+  }
+
+  .end-mark span {
+    background: var(--cream);
+  }
+}
+
+@media (max-width: 390px) {
+  .about-grid {
+    padding: 1.5rem 0;
+  }
+
+  .about-copy p:nth-of-type(2) {
+    display: none;
+  }
+
+  .about-stack {
+    margin-top: 1rem;
+  }
+
+  .contact-content,
+  .end-stage {
+    padding: 1.5rem 0;
+  }
+}
