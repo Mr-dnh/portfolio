@@ -2,6 +2,13 @@
 
 import { useRef } from "react";
 
+const contacts = [
+  { label: "EMAIL", value: "aidin.dnh@gmail.com", href: "mailto:aidin.dnh@gmail.com" },
+  { label: "PHONE", value: "+98 99 666 99 608", href: "tel:+989966699608" },
+  { label: "GITHUB", value: "github.com/Mr-dnh", href: "https://github.com/Mr-dnh" },
+  { label: "TELEGRAM", value: "@Idndnh", href: "https://t.me/Idndnh" },
+];
+
 export function Contact() {
   const ctaRef = useRef<HTMLAnchorElement>(null);
 
@@ -32,26 +39,35 @@ export function Contact() {
       </div>
 
       <div className="contact-content">
-        <p className="contact-eyebrow">HAVE A PROJECT IN MIND?</p>
+        <p className="contact-eyebrow">LET&apos;S CONNECT</p>
         <h2 id="contact-title">
-          Let&apos;s build something <em>worth remembering.</em>
+          Find me <em>here.</em>
         </h2>
 
         <a
           ref={ctaRef}
           className="contact-cta"
-          href="mailto:hello@aidindnh.dev"
+          href="mailto:aidin.dnh@gmail.com"
           onPointerMove={handlePointerMove}
           onPointerLeave={resetPointer}
         >
-          <span>GET IN TOUCH</span>
+          <span>aidin.dnh@gmail.com</span>
           <span aria-hidden="true">↗</span>
         </a>
+
+        <div className="contact-grid" aria-label="Contact details">
+          {contacts.map((contact) => (
+            <a key={contact.label} href={contact.href} className="contact-link">
+              <span>{contact.label}</span>
+              <strong>{contact.value}</strong>
+            </a>
+          ))}
+        </div>
       </div>
 
       <div className="contact-note">
-        <span>OPEN TO SELECT PROJECTS</span>
-        <span>REMOTE / WORLDWIDE</span>
+        <span>EMAIL / PHONE / GITHUB / TELEGRAM</span>
+        <span>BASED IN AZERBAIJAN</span>
       </div>
     </section>
   );
