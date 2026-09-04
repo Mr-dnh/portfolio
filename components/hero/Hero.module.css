@@ -9,7 +9,7 @@
   isolation: isolate;
 }
 
-[data-hero-reveal] {
+:global([data-hero-reveal]) {
   opacity: 0;
   visibility: hidden;
 }
