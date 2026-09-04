@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./mobile-art-direction.css";
 
 export const metadata: Metadata = {
   title: "Portfolio",
