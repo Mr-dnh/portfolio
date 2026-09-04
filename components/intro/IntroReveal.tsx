@@ -42,7 +42,7 @@ export function IntroReveal() {
   }, []);
 
   return (
-    <div ref={rootRef} className={styles.intro} aria-hidden="true">
+    <div ref={rootRef} className={styles.intro} data-intro-reveal aria-hidden="true">
       <div className={styles.panels}>
         {panels.map((panel) => (
           <div
