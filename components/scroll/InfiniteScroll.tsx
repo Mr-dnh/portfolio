@@ -127,7 +127,9 @@ export function InfiniteScroll({ children }: InfiniteScrollProps) {
 
       if (Math.abs(deltaY) < 45 || Math.abs(deltaY) < Math.abs(deltaX) * 1.15) return;
 
-      go(deltaY > 0 ? 1 : -1);
+      // Finger moving down means navigating to the previous section.
+      // Finger moving up means navigating to the next section.
+      go(deltaY > 0 ? -1 : 1);
     };
 
     sections.forEach((section) => {
