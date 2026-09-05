@@ -22,7 +22,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgb(255 255 255 / 0.42);
+  color: rgb(255 255 255 / 0.58);
 }
 
 .heading h2 {
@@ -35,7 +35,7 @@
 }
 
 .heading h2 em {
-  color: rgb(255 255 255 / 0.42);
+  color: rgb(255 255 255 / 0.58);
   font-style: normal;
 }
 
@@ -48,7 +48,7 @@
   margin: 0 0 1.5rem;
   font-size: clamp(1rem, 1.3vw, 1.2rem);
   line-height: 1.55;
-  color: rgb(255 255 255 / 0.62);
+  color: rgb(255 255 255 / 0.72);
 }
 
 .stack {
@@ -65,7 +65,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgb(255 255 255 / 0.56);
+  color: rgb(255 255 255 / 0.68);
   transition: border-color 220ms ease, color 220ms ease, transform 220ms ease;
 }
 
@@ -85,7 +85,7 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgb(255 255 255 / 0.42);
+  color: rgb(255 255 255 / 0.55);
 }
 
 @media (max-width: 900px) {
