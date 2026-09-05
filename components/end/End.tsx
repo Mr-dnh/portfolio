@@ -1,5 +1,24 @@
 import styles from "./End.module.css";
 
+const stack = [
+  {
+    name: "Next.js / React",
+    reason: "A fast, component-based foundation with App Router and server-first rendering."
+  },
+  {
+    name: "TypeScript",
+    reason: "Keeps the project predictable, maintainable, and safer to evolve."
+  },
+  {
+    name: "GSAP / CSS",
+    reason: "Handles the motion and micro-interactions without turning the UI into a heavy animation layer."
+  },
+  {
+    name: "Vercel / SEO",
+    reason: "Simple deployment plus metadata, Open Graph, sitemap, robots, and structured data for discoverability."
+  }
+];
+
 export function End() {
   return (
     <section className={styles.endSection} aria-labelledby="end-title">
@@ -9,14 +28,20 @@ export function End() {
       </div>
 
       <div className={styles.stage}>
-        <p className={styles.index}>THANKS FOR SCROLLING</p>
-        <h2 id="end-title">
-          Until the next <em>build.</em>
-        </h2>
-        <div className={styles.mark} aria-hidden="true">
-          <span />
-          <span />
-          <span />
+        <div className={styles.heading}>
+          <p className={styles.index}>THIS PROJECT / THE STACK</p>
+          <h2 id="end-title">
+            Built with <em>intent.</em>
+          </h2>
+        </div>
+
+        <div className={styles.stack}>
+          {stack.map((item) => (
+            <div className={styles.stackItem} key={item.name}>
+              <h3>{item.name}</h3>
+              <p>{item.reason}</p>
+            </div>
+          ))}
         </div>
       </div>
 
