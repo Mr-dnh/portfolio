@@ -55,7 +55,7 @@
 .content {
   width: min(100%, 110rem);
   margin: auto 0;
-  padding: clamp(4rem, 12vh, 9rem) 0;
+  padding: clamp(3rem, 8vh, 7rem) 0;
 }
 
 .kicker {
@@ -71,10 +71,10 @@
 .title {
   max-width: 12ch;
   margin: 0;
-  font-size: clamp(4.5rem, 15vw, 15rem);
+  font-size: clamp(4rem, 10vw, 10rem);
   font-weight: 700;
-  letter-spacing: -0.075em;
-  line-height: 0.78;
+  letter-spacing: -0.05em;
+  line-height: 0.8;
   text-transform: uppercase;
 }
 
@@ -107,7 +107,7 @@
   .heroSection { padding: 1rem; }
   .meta { flex-direction: column; gap: 0.5rem; }
   .meta span:last-child { align-self: flex-end; }
-  .title { max-width: 9ch; font-size: clamp(4rem, 18vw, 8rem); }
+  .title { max-width: 9ch; font-size: clamp(4rem, 15vw, 8rem); }
   .description { max-width: 25rem; }
 }
 

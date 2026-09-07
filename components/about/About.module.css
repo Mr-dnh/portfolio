@@ -10,11 +10,9 @@
 .aboutGrid {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
-  gap: clamp(3rem, 10vw, 12rem);
-  align-items: end;
+  align-items: center;
   width: min(100%, 110rem);
   margin: auto 0;
-  padding: clamp(5rem, 12vh, 9rem) 0;
 }
 
 .eyebrow {

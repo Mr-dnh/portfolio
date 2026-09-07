@@ -33,7 +33,6 @@ export function Contact() {
       </div>
 
       <div className={styles.note}>
-        <span>EMAIL / PHONE / GITHUB / TELEGRAM</span>
         <span>BASED IN RASHT</span>
       </div>
     </section>
