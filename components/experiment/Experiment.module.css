@@ -136,3 +136,35 @@
     color: rgb(201 183 159 / 0.7);
   }
 }
+
+
+/* Persian typography */
+:global(html[lang="fa"]) .eyebrow,
+:global(html[lang="fa"]) .coordinate {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+:global(html[lang="fa"]) .copy h2 {
+  font-size: clamp(3.5rem, 7.5vw, 8rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+:global(html[lang="fa"]) .copy > p:last-child {
+  max-width: 31rem;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+@media (max-width: 760px) {
+  :global(html[lang="fa"]) .copy h2 {
+    font-size: clamp(2.8rem, 13vw, 5.5rem);
+    line-height: 1;
+  }
+
+  :global(html[lang="fa"]) .copy > p:last-child {
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+}
