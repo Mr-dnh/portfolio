@@ -3,19 +3,19 @@ import styles from "./End.module.css";
 const stack = [
   {
     name: "Next.js / React",
-    reason: "A fast, component-based foundation with App Router and server-first rendering."
+    reason: "پایه‌ای سریع و کامپوننت‌محور با App Router و رندرینگ server-first."
   },
   {
     name: "TypeScript",
-    reason: "Keeps the project predictable, maintainable, and safer to evolve."
+    reason: "پروژه را قابل پیش‌بینی، قابل نگهداری و توسعه‌پذیرتر نگه می‌دارد."
   },
   {
     name: "GSAP / CSS",
-    reason: "Handles the motion and micro-interactions without turning the UI into a heavy animation layer."
+    reason: "حرکت‌ها و ریزتعامل‌ها را مدیریت می‌کند، بدون اینکه رابط کاربری را سنگین کند."
   },
   {
     name: "Vercel / SEO",
-    reason: "Simple deployment plus metadata, Open Graph, sitemap, robots, and structured data for discoverability."
+    reason: "استقرار ساده به‌همراه متادیتا، Open Graph، sitemap، robots و داده‌های ساختاریافته برای دیده‌شدن بهتر."
   }
 ];
 
@@ -29,9 +29,9 @@ export function End() {
 
       <div className={styles.stage}>
         <div className={styles.heading}>
-          <p className={styles.index}>THIS PROJECT / THE STACK</p>
+          <p className={styles.index}>این پروژه / فناوری‌ها</p>
           <h2 id="end-title">
-            Built with <em>intent.</em>
+            ساخته‌شده با <em>هدف.</em>
           </h2>
         </div>
 
@@ -46,7 +46,7 @@ export function End() {
       </div>
 
       <div className={styles.footer}>
-        <span>AIDIN DNH / FRONTEND DEVELOPER</span>
+        <span>آیدین دنیادیده / توسعه‌دهنده فرانت‌اند</span>
         <span>© 2026</span>
       </div>
     </section>
