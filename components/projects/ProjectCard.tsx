@@ -9,10 +9,15 @@ interface ProjectCardProps {
   type: string;
   description: string;
   link: string;
-  image: string;
 }
 
-export function ProjectCard({ number, title, type, description, link, image }: ProjectCardProps) {
+export function ProjectCard({
+  number,
+  title,
+  type,
+  description,
+  link,
+}: ProjectCardProps) {
   const cardRef = useRef<HTMLAnchorElement>(null);
 
   const handlePointerMove = (event: PointerEvent<HTMLAnchorElement>) => {
@@ -52,12 +57,10 @@ export function ProjectCard({ number, title, type, description, link, image }: P
         <p>{description}</p>
       </div>
 
-      <div className={styles.projectPreview} aria-hidden="true">
-        <img src={image} alt="" loading="lazy" />
-      </div>
-
       <span className={styles.projectType}>{type}</span>
-      <span className={styles.projectArrow} aria-hidden="true">↗</span>
+      <span className={styles.projectArrow} aria-hidden="true">
+        ↗
+      </span>
     </a>
   );
 }
