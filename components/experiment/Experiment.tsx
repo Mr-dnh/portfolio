@@ -12,10 +12,10 @@ export function Experiment() {
       <div className={styles.stage}>
         <div className={styles.copy}>
           <p className={styles.eyebrow}>مطالعه تعاملی / ۰۰۱</p>
-          <h2 id="experiment-title">کد می‌تواند <em>زنده باشد.</em></h2>
+          <h2 id="experiment-title">کد می‌تونه <em>زنده باشه.</em></h2>
           <p>
-            یک مطالعه بلادرنگ با Three.js که بر تعامل تمرکز دارد. نشانگر را حرکت دهید تا چشم‌ها
-            مستقیماً آن را دنبال کنند و یک تعامل کوچک به پاسخی قابل مشاهده تبدیل شود.
+            همه به وبسایت شما خیره می‌شن. 
+            خودتون ببینید، هر جا برید چشم‌ها دنبالتون میان!
           </p>
         </div>
 

@@ -68,15 +68,14 @@ export function Hero() {
       <div className={styles.grid} aria-hidden="true" />
       <div className={styles.meta} aria-hidden="true">
         <span data-hero-reveal>نمونه‌کار / ۱۴۰۵</span>
-        <span data-hero-reveal>ساکن رشت</span>
       </div>
 
       <div className={styles.content}>
         <p className={styles.kicker} data-hero-reveal>توسعه‌دهنده فرانت‌اند</p>
         <h1 id="hero-title" className={styles.title} data-hero-reveal>آیدین<br/>دنیادیده</h1>
         <p className={styles.description}>
-          توسعه‌دهنده فرانت‌اندی در حال رشد، با تمرکز بر چیدمان تمیز، رنگ‌بندی مدرن،
-          اجرای دقیق طراحی و یادگیری از طریق پروژه‌های واقعی.
+          توسعه‌دهنده فرانت‌اند. در حال رشد، با تمرکز بر چیدمان تمیز، رنگ‌بندی مدرن،
+          اجرای دقیق طرح و تحویل پروژه‌های واقعی
         </p>
       </div>
 

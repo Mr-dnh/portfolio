@@ -4,7 +4,7 @@ import { ProjectCard } from "./ProjectCard";
 const projects = [
   {
     number: "۰۱",
-    title: "واگارد",
+    title: "واگرد",
     type: "فرانت‌اند / بک‌اند",
     description: "فروشگاه اینترنتی کاملاً کاربردی؛ خودتان آن را ببینید.",
     link: "https://www.vagard.ir/",
@@ -27,7 +27,7 @@ const projects = [
   },
   {
     number: "۰۴",
-    title: "آزمون دیجی‌کالا",
+    title: "نمونه دیجی‌کالا",
     type: "SASS / DOM",
     description:
       "بازسازی صفحه اول دیجی‌کالا با منوی پیچیده، اسلایدرها، فهرست‌ها و GIFها.",

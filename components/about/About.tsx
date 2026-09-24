@@ -32,19 +32,19 @@ export function About() {
         <div className={styles.heading}>
           <p className={styles.eyebrow}>توسعه‌دهنده فرانت‌اند</p>
           <h2 id="about-title">
-            رابط‌های تمیز، <em>پروژه‌های واقعی.</em>
+            رابط کاربری تمیز، <em>پروژه‌های چشم‌نواز.</em>
           </h2>
         </div>
 
         <div className={styles.copy}>
           <p>
-            تمرکز کار من روی رابط‌های واکنش‌گرا، ساختار کامپوننت‌ها، APIها، مدیریت وضعیت
+            تمرکز کار من روی طراحی واکنش‌گرا، مدیریت پروژه، APIها، تحویل به موقع
             و توسعه مدرن با React و Next.js است.
           </p>
           <p>
-            I also enjoy bringing interfaces to life with interactive code —
-            from cursor-driven motion and animated transitions to reactive
-            visual experiences that respond to the user.
+            بیشتر دوست دارم بین سادگی و خلاقیت، یه تعادل درست پیدا کنم. همیشه هم
+            سعی می‌کنم چیزای جدید یاد بگیرم و با تکنولوژی‌های جدید بازی کنم؛
+            مخصوصاً وقتی نتیجه‌ش یه تجربه متفاوت و جذاب برای کاربر باشه.
           </p>
 
           <div className={styles.stack} aria-label="مهارت‌ها و دانش">
@@ -56,7 +56,6 @@ export function About() {
       </div>
 
       <div className={styles.footer}>
-        <span>فرانت‌اند / REACT / NEXT.JS</span>
         <span>موبایل‌محور / واکنش‌گرا</span>
       </div>
     </section>

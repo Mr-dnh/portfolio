@@ -47,7 +47,6 @@
   border: 1px solid rgb(255 255 255 / 0.1);
 }
 .stackItem {
-  min-height: 10rem;
   padding: 1.35rem;
   background: #030303;
 }
@@ -59,7 +58,6 @@
   text-transform: uppercase;
 }
 .stackItem p {
-  max-width: 30ch;
   margin: 0;
   font-size: 0.78rem;
   line-height: 1.7;
@@ -71,7 +69,7 @@
   gap: 1rem;
   padding-top: 1rem;
   border-top: 1px solid rgb(255 255 255 / 0.08);
-  font-size: 0.65rem;
+  font-size: 1rem;
   letter-spacing: 0.18em;
   color: rgb(255 255 255 / 0.52);
 }
@@ -105,7 +103,7 @@
 }
 
 :global(html[lang="fa"]) .stackItem p {
-  max-width: 34ch;
+  /* max-width: 34ch; */
   font-size: 0.86rem;
   line-height: 1.85;
 }

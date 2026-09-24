@@ -11,14 +11,13 @@ export function Contact() {
   return (
     <section className={styles.contactSection} aria-labelledby="contact-title">
       <div className="section-label">
-        <span>۰۵ / ۰۶</span>
-        <span>ارتباط</span>
+        <span>۰۶ / ۰۶</span>
+        <span>پایان / آغاز</span>
       </div>
 
       <div className={styles.content}>
-        <p className={styles.eyebrow}>بیایید در ارتباط باشیم</p>
         <h2 id="contact-title">
-          اینجا <em>پیدایم کنید.</em>
+          می‌خوای سایتت جذاب‌تر از این باشه؟ <br /> بهم بگو
         </h2>
       </div>
 
@@ -27,14 +26,12 @@ export function Contact() {
           <a key={contact.label} href={contact.href} className={styles.link}>
             <span>{contact.label}</span>
             <strong>{contact.value}</strong>
-            <span className={styles.arrow} aria-hidden="true">↗</span>
+            <span className={styles.arrow} aria-hidden="true">
+              ↗
+            </span>
           </a>
         ))}
       </div>
-
-      <div className={styles.note}>
-        <span>ساکن رشت</span>
-      </div>
-    </section>
+   </section>
   );
 }

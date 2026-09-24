@@ -2,34 +2,32 @@ import styles from "./End.module.css";
 
 const stack = [
   {
-    name: "Next.js / React",
-    reason: "پایه‌ای سریع و کامپوننت‌محور با App Router و رندرینگ server-first."
+    name: "می‌تونیم.",
+    reason: "انواع سایت‌های فروشگاهی رو برات بسازیم.",
   },
   {
-    name: "TypeScript",
-    reason: "پروژه را قابل پیش‌بینی، قابل نگهداری و توسعه‌پذیرتر نگه می‌دارد."
+    name: "می‌تونیم..",
+    reason: "برات سایت معرفی برند یا بلاگ شخصی بسازیم.",
   },
   {
-    name: "GSAP / CSS",
-    reason: "حرکت‌ها و ریزتعامل‌ها را مدیریت می‌کند، بدون اینکه رابط کاربری را سنگین کند."
+    name: "می‌تونیم...",
+    reason: "سایت شرکتی برات بسازیم. آره!",
   },
   {
-    name: "Vercel / SEO",
-    reason: "استقرار ساده به‌همراه متادیتا، Open Graph، sitemap، robots و داده‌های ساختاریافته برای دیده‌شدن بهتر."
-  }
+    name: "می‌تونیم....",
+    reason: "با هم می‌تونیم هرچیزی که فکرشو بکنی خلق کنیم!",
+  },
 ];
 
 export function End() {
   return (
     <section className={styles.endSection} aria-labelledby="end-title">
       <div className="section-label">
-        <span>۰۶ / ۰۶</span>
-        <span>پایان / آغاز</span>
+        <span>۰۵ / ۰۶</span>
       </div>
 
       <div className={styles.stage}>
         <div className={styles.heading}>
-          <p className={styles.index}>این پروژه / فناوری‌ها</p>
           <h2 id="end-title">
             ساخته‌شده با <em>هدف.</em>
           </h2>
@@ -46,7 +44,7 @@ export function End() {
       </div>
 
       <div className={styles.footer}>
-        <span>آیدین دنیادیده / توسعه‌دهنده فرانت‌اند</span>
+        <span>تیممون تازه شروع کرده، پس نگران هزینه‌هات نباش 😉</span>
         <span>© 2026</span>
       </div>
     </section>

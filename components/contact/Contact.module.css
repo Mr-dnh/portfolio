@@ -21,17 +21,14 @@
   color: rgb(255 255 255 / 0.42);
 }
 .content h2 {
-  max-width: 10ch;
+  /* max-width: 10ch; */
   margin: 0;
-  font-size: clamp(4rem, 10vw, 11rem);
+  font-size: clamp(3rem, 8vw, 9rem);
   font-weight: 500;
   letter-spacing: -0.075em;
   line-height: 0.82;
 }
-.content h2 em {
-  color: rgb(255 255 255 / 0.35);
-  font-style: normal;
-}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -116,8 +113,8 @@
     padding: 2.5rem 0;
   }
   .content h2 {
-    max-width: 9ch;
-    font-size: clamp(3.25rem, 15vw, 6rem);
+    /* max-width: 9ch; */
+    font-size: clamp(3rem, 12vw, 5rem);
     line-height: 0.84;
   }
   .grid {
@@ -171,8 +168,8 @@
 }
 
 :global(html[lang="fa"]) .content h2 {
-  max-width: 14ch;
-  font-size: clamp(3.5rem, 9vw, 9.5rem);
+  /* max-width: 14ch; */
+  font-size: clamp(3rem, 7vw, 7rem);
   line-height: 1;
   letter-spacing: -0.06em;
 }
@@ -188,7 +185,7 @@
 @media (max-width: 760px) {
   :global(html[lang="fa"]) .content h2 {
     max-width: 14ch;
-    font-size: clamp(2.8rem, 13vw, 5.5rem);
+    font-size: clamp(3rem, 13vw, 5.5rem);
     line-height: 1;
   }
 
