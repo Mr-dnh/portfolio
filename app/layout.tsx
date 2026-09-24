@@ -1,40 +1,37 @@
 import type { Metadata } from "next";
+import { Vazirmatn } from "next/font/google";
 import "./globals.css";
+
+const vazirmatn = Vazirmatn({
+  subsets: ["arabic"],
+  display: "swap",
+});
 
 const siteUrl = new URL("https://dnhport.vercel.app");
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: "Aidin DNH — Front-End Developer",
-    template: "%s — Aidin DNH",
+    default: "آیدین دنیادیده — توسعه‌دهنده فرانت‌اند",
+    template: "%s — آیدین دنیادیده",
   },
   description:
-    "Portfolio of Aidin DNH, a front-end developer focused on clean interfaces, responsive design, React, and Next.js.",
-  applicationName: "Aidin DNH Portfolio",
+    "نمونه‌کار آیدین دنیادیده؛ توسعه‌دهنده فرانت‌اند با تمرکز بر رابط‌های کاربری تمیز، طراحی واکنش‌گرا، React و Next.js.",
+  applicationName: "نمونه‌کار آیدین دنیادیده",
   authors: [{ name: "Aidin DNH" }],
   creator: "Aidin DNH",
-  keywords: [
-    "Aidin DNH",
-    "front-end developer",
-    "frontend developer",
-    "React developer",
-    "Next.js developer",
-    "web developer",
-    "portfolio",
-    "responsive design",
-  ],
+  keywords: ["آیدین دنیادیده", "توسعه‌دهنده فرانت‌اند", "React", "Next.js", "توسعه وب", "نمونه‌کار", "طراحی واکنش‌گرا"],
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     url: "/",
-    title: "Aidin DNH — Front-End Developer",
+    title: "آیدین دنیادیده — توسعه‌دهنده فرانت‌اند",
     description:
       "Portfolio of Aidin DNH, a front-end developer focused on clean interfaces, responsive design, React, and Next.js.",
-    siteName: "Aidin DNH Portfolio",
-    locale: "en_US",
+    siteName: "نمونه‌کار آیدین دنیادیده",
+    locale: "fa_IR",
   },
   twitter: {
     card: "summary_large_image",
@@ -60,7 +57,7 @@ const structuredData = {
   "@type": "Person",
   name: "Aidin DNH",
   url: siteUrl.toString(),
-  jobTitle: "Front-End Developer",
+  jobTitle: "توسعه‌دهنده فرانت‌اند",
   email: "mailto:aidin.dnh@gmail.com",
   sameAs: [
     "https://github.com/Mr-dnh",
@@ -70,8 +67,8 @@ const structuredData = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="fa" dir="rtl">
+      <body className={vazirmatn.className}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
