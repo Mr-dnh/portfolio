@@ -30,14 +30,27 @@ export function IntroReveal() {
     const context = gsap.context(() => {
       gsap.set(panelRefs.current, { yPercent: 0 });
 
-      gsap.timeline({ delay: 0.35, defaults: { ease: "power2.inOut" } })
+      const timeline = gsap.timeline({
+        delay: 0.35,
+        defaults: { ease: "power2.inOut" },
+        onComplete: completeIntro,
+      });
+
+      timeline
         .to(panelRefs.current, {
           yPercent: -105,
           duration: 1.45,
           stagger: 0.1,
         })
-        .call(completeIntro)
         .set(root, { autoAlpha: 0 });
+
+      // Never leave the page behind the curtain if the animation is interrupted.
+      gsap.delayedCall(3.5, () => {
+        if (root.dataset.introComplete !== "true") {
+          completeIntro();
+          gsap.set(root, { autoAlpha: 0 });
+        }
+      });
     }, root);
 
     return () => context.revert();
