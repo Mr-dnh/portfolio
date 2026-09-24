@@ -25,21 +25,21 @@ export function About() {
     <section className={styles.aboutSection} aria-labelledby="about-title">
       <div className="section-label">
         <span>02 / 06</span>
-        <span>ABOUT</span>
+        <span>درباره من</span>
       </div>
 
       <div className={styles.aboutGrid}>
         <div className={styles.heading}>
-          <p className={styles.eyebrow}>FRONT-END DEVELOPER</p>
+          <p className={styles.eyebrow}>توسعه‌دهنده فرانت‌اند</p>
           <h2 id="about-title">
-            Clean interfaces, <em>real projects.</em>
+            رابط‌های تمیز، <em>پروژه‌های واقعی.</em>
           </h2>
         </div>
 
         <div className={styles.copy}>
           <p>
-            My work centers on responsive interfaces, component structure,
-            APIs, state management, and modern React and Next.js development.
+            تمرکز کار من روی رابط‌های واکنش‌گرا، ساختار کامپوننت‌ها، APIها، مدیریت وضعیت
+            و توسعه مدرن با React و Next.js است.
           </p>
           <p>
             I also enjoy bringing interfaces to life with interactive code —
@@ -47,7 +47,7 @@ export function About() {
             visual experiences that respond to the user.
           </p>
 
-          <div className={styles.stack} aria-label="Skills and knowledge">
+          <div className={styles.stack} aria-label="مهارت‌ها و دانش">
             {skills.map((skill) => (
               <span key={skill}>{skill}</span>
             ))}
@@ -56,8 +56,8 @@ export function About() {
       </div>
 
       <div className={styles.footer}>
-        <span>FRONT-END / REACT / NEXT.JS</span>
-        <span>MOBILE-FIRST / RESPONSIVE</span>
+        <span>فرانت‌اند / REACT / NEXT.JS</span>
+        <span>موبایل‌محور / واکنش‌گرا</span>
       </div>
     </section>
   );
