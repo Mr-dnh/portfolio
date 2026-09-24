@@ -81,7 +81,7 @@ export function Hero() {
       </div>
 
       <div className={styles.meta} aria-hidden="true">
-        <span>01 / 06</span>
+        <span>۰۱ / ۰۶</span>
         <span className={styles.scroll} data-hero-scroll>
           پیمایش <span className={styles.scrollIcon}>↓</span>
         </span>
