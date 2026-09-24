@@ -11,7 +11,7 @@ export function Contact() {
   return (
     <section className={styles.contactSection} aria-labelledby="contact-title">
       <div className="section-label">
-        <span>05 / 06</span>
+        <span>۰۵ / ۰۶</span>
         <span>ارتباط</span>
       </div>
 
