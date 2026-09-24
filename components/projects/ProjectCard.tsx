@@ -43,7 +43,7 @@ export function ProjectCard({ number, title, type, description, link, image }: P
       rel="noreferrer"
       onPointerMove={handlePointerMove}
       onPointerLeave={resetPointer}
-      aria-label={`View ${title}`}
+      aria-label={`مشاهده ${title}`}
     >
       <span className={styles.projectNumber}>{number}</span>
 
