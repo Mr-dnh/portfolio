@@ -22,7 +22,7 @@ export function Contact() {
         </h2>
       </div>
 
-      <div className={styles.grid} aria-label="Contact details">
+      <div className={styles.grid} aria-label="اطلاعات تماس">
         {contacts.map((contact) => (
           <a key={contact.label} href={contact.href} className={styles.link}>
             <span>{contact.label}</span>
