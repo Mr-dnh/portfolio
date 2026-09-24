@@ -23,8 +23,8 @@ export function End() {
   return (
     <section className={styles.endSection} aria-labelledby="end-title">
       <div className="section-label">
-        <span>06 / 06</span>
-        <span>END / BEGIN</span>
+        <span>۰۶ / ۰۶</span>
+        <span>پایان / آغاز</span>
       </div>
 
       <div className={styles.stage}>
