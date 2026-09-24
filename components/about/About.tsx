@@ -24,7 +24,7 @@ export function About() {
   return (
     <section className={styles.aboutSection} aria-labelledby="about-title">
       <div className="section-label">
-        <span>02 / 06</span>
+        <span>۰۲ / ۰۶</span>
         <span>درباره من</span>
       </div>
 
