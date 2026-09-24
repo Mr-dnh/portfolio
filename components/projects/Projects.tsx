@@ -6,7 +6,7 @@ const projects = [
     number: "01",
     title: "VAGARD",
     type: "FRONT-END / BACK-END",
-    description: "Fully working shopping website. See for yourself !",
+    description: "فروشگاه اینترنتی کاملاً کاربردی؛ خودتان آن را ببینید.",
     link: "https://www.vagard.ir/",
     image:
       "https://image.thum.io/get/width/720/crop/480/noanimate/https://www.vagard.ir/",
@@ -16,7 +16,7 @@ const projects = [
     title: "E-COMMERCE",
     type: "NEXT.JS / ZUSTAND",
     description:
-      "A responsive commerce website focused on route handling, themes and languages, and strong call-to-action design.",
+      "یک فروشگاه واکنش‌گرا با تمرکز بر مدیریت مسیرها، تم و زبان و طراحی مؤثر فراخوان به اقدام.",
     link: "https://dn-commerce.vercel.app/",
     image:
       "https://image.thum.io/get/width/720/crop/480/noanimate/https://dn-commerce.vercel.app/",
@@ -26,7 +26,7 @@ const projects = [
     title: "WEATHER APP",
     type: "REACT / API",
     description:
-      "A one-page React weather app demonstrating API connections and search queries.",
+      "یک اپلیکیشن تک‌صفحه‌ای هواشناسی با React برای نمایش اتصال به API و جست‌وجوی داده‌ها.",
     link: "https://dnh-weather.vercel.app/",
     image:
       "https://image.thum.io/get/width/720/crop/480/noanimate/https://dnh-weather.vercel.app/",
@@ -36,7 +36,7 @@ const projects = [
     title: "DIGIKALA TEST",
     type: "SASS / DOM",
     description:
-      "A recreation of Digikala's first page with a complex menu, carousels, lists, and GIFs.",
+      "بازسازی صفحه اول دیجی‌کالا با منوی پیچیده، اسلایدرها، فهرست‌ها و GIFها.",
     link: "https://dn-digikala.vercel.app/",
     image:
       "https://image.thum.io/get/width/720/crop/480/noanimate/https://dn-digikala.vercel.app/",
@@ -48,13 +48,13 @@ export function Projects() {
     <section className={styles.projectsSection} aria-labelledby="projects-title">
       <div className="section-label">
         <span>03 / 06</span>
-        <span>SELECTED WORKS</span>
+        <span>کارهای منتخب</span>
       </div>
 
       <div className={styles.projectsIntro}>
-        <p className={styles.eyebrow}>PROJECTS SO FAR</p>
+        <p className={styles.eyebrow}>پروژه‌های انجام‌شده</p>
         <h2 id="projects-title">
-          Real <em>lessons.</em>
+          تجربه‌های <em>واقعی.</em>
         </h2>
       </div>
 
