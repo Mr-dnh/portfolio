@@ -5,7 +5,7 @@ export function Experiment() {
   return (
     <section className={styles.experimentSection} aria-labelledby="experiment-title">
       <div className="section-label">
-        <span>04 / 06</span>
+        <span>۰۴ / ۰۶</span>
         <span>آزمایش</span>
       </div>
 
