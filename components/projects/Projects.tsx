@@ -8,8 +8,6 @@ const projects = [
     type: "فرانت‌اند / بک‌اند",
     description: "فروشگاه اینترنتی کاملاً کاربردی؛ خودتان آن را ببینید.",
     link: "https://www.vagard.ir/",
-    image:
-      "https://image.thum.io/get/width/720/crop/480/noanimate/https://www.vagard.ir/",
   },
   {
     number: "۰۲",
@@ -18,8 +16,6 @@ const projects = [
     description:
       "یک فروشگاه واکنش‌گرا با تمرکز بر مدیریت مسیرها، تم و زبان و طراحی مؤثر فراخوان به اقدام.",
     link: "https://dn-commerce.vercel.app/",
-    image:
-      "https://image.thum.io/get/width/720/crop/480/noanimate/https://dn-commerce.vercel.app/",
   },
   {
     number: "۰۳",
@@ -28,8 +24,6 @@ const projects = [
     description:
       "یک اپلیکیشن تک‌صفحه‌ای هواشناسی با React برای نمایش اتصال به API و جست‌وجوی داده‌ها.",
     link: "https://dnh-weather.vercel.app/",
-    image:
-      "https://image.thum.io/get/width/720/crop/480/noanimate/https://dnh-weather.vercel.app/",
   },
   {
     number: "۰۴",
@@ -38,8 +32,6 @@ const projects = [
     description:
       "بازسازی صفحه اول دیجی‌کالا با منوی پیچیده، اسلایدرها، فهرست‌ها و GIFها.",
     link: "https://dn-digikala.vercel.app/",
-    image:
-      "https://image.thum.io/get/width/720/crop/480/noanimate/https://dn-digikala.vercel.app/",
   },
 ] as const;
 
