@@ -160,3 +160,43 @@
     transition: none;
   }
 }
+
+
+/* Persian typography */
+:global(html[lang="fa"]) .eyebrow,
+:global(html[lang="fa"]) .note,
+:global(html[lang="fa"]) .link span:first-child {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+:global(html[lang="fa"]) .content h2 {
+  max-width: 14ch;
+  font-size: clamp(3.5rem, 9vw, 9.5rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+:global(html[lang="fa"]) .link strong {
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+}
+
+:global(html[lang="fa"]) .note {
+  font-size: 0.72rem;
+}
+
+@media (max-width: 760px) {
+  :global(html[lang="fa"]) .content h2 {
+    max-width: 14ch;
+    font-size: clamp(2.8rem, 13vw, 5.5rem);
+    line-height: 1;
+  }
+
+  :global(html[lang="fa"]) .link strong {
+    font-size: 0.78rem;
+  }
+
+  :global(html[lang="fa"]) .note {
+    font-size: 0.65rem;
+  }
+}
