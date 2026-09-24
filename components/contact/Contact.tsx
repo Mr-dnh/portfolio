@@ -1,10 +1,10 @@
 import styles from "./Contact.module.css";
 
 const contacts = [
-  { label: "EMAIL", value: "aidin.dnh@gmail.com", href: "mailto:aidin.dnh@gmail.com" },
-  { label: "PHONE", value: "+98 99 666 99 608", href: "tel:+989966699608" },
-  { label: "GITHUB", value: "github.com/Mr-dnh", href: "https://github.com/Mr-dnh" },
-  { label: "TELEGRAM", value: "@Idndnh", href: "https://t.me/Idndnh" },
+  { label: "ایمیل", value: "aidin.dnh@gmail.com", href: "mailto:aidin.dnh@gmail.com" },
+  { label: "تلفن", value: "+98 99 666 99 608", href: "tel:+989966699608" },
+  { label: "گیت‌هاب", value: "github.com/Mr-dnh", href: "https://github.com/Mr-dnh" },
+  { label: "تلگرام", value: "@Idndnh", href: "https://t.me/Idndnh" },
 ];
 
 export function Contact() {
@@ -12,13 +12,13 @@ export function Contact() {
     <section className={styles.contactSection} aria-labelledby="contact-title">
       <div className="section-label">
         <span>05 / 06</span>
-        <span>CONTACT</span>
+        <span>ارتباط</span>
       </div>
 
       <div className={styles.content}>
-        <p className={styles.eyebrow}>LET&apos;S CONNECT</p>
+        <p className={styles.eyebrow}>بیایید در ارتباط باشیم</p>
         <h2 id="contact-title">
-          Find me <em>here.</em>
+          اینجا <em>پیدایم کنید.</em>
         </h2>
       </div>
 
@@ -33,7 +33,7 @@ export function Contact() {
       </div>
 
       <div className={styles.note}>
-        <span>BASED IN RASHT</span>
+        <span>ساکن رشت</span>
       </div>
     </section>
   );
