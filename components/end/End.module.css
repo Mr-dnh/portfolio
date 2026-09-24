@@ -84,3 +84,40 @@
     max-width: none;
   }
 }
+
+
+/* Persian typography */
+:global(html[lang="fa"]) .index,
+:global(html[lang="fa"]) .footer {
+  letter-spacing: 0;
+}
+
+:global(html[lang="fa"]) .stage h2 {
+  max-width: 12ch;
+  font-size: clamp(3.5rem, 8vw, 8.5rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+:global(html[lang="fa"]) .stackItem h3 {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+:global(html[lang="fa"]) .stackItem p {
+  max-width: 34ch;
+  font-size: 0.86rem;
+  line-height: 1.85;
+}
+
+@media (max-width: 760px) {
+  :global(html[lang="fa"]) .stage h2 {
+    max-width: 12ch;
+    font-size: clamp(2.8rem, 13vw, 5.5rem);
+  }
+
+  :global(html[lang="fa"]) .stackItem p {
+    font-size: 0.82rem;
+    line-height: 1.8;
+  }
+}
