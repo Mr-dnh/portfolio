@@ -67,23 +67,23 @@ export function Hero() {
       <div ref={glowRef} className={styles.glow} aria-hidden="true" />
       <div className={styles.grid} aria-hidden="true" />
       <div className={styles.meta} aria-hidden="true">
-        <span data-hero-reveal>PORTFOLIO / 2026</span>
-        <span data-hero-reveal>BASED IN RASHT</span>
+        <span data-hero-reveal>نمونه‌کار / ۱۴۰۵</span>
+        <span data-hero-reveal>ساکن رشت</span>
       </div>
 
       <div className={styles.content}>
-        <p className={styles.kicker} data-hero-reveal>FRONT-END DEVELOPER</p>
-        <h1 id="hero-title" className={styles.title} data-hero-reveal>AIDIN<br/>Donyadideh</h1>
+        <p className={styles.kicker} data-hero-reveal>توسعه‌دهنده فرانت‌اند</p>
+        <h1 id="hero-title" className={styles.title} data-hero-reveal>آیدین<br/>دنیادیده</h1>
         <p className={styles.description}>
-          A growing front-end developer focused on clean layouts, modern colors,
-          precise design implementation, and learning through real projects.
+          توسعه‌دهنده فرانت‌اندی در حال رشد، با تمرکز بر چیدمان تمیز، رنگ‌بندی مدرن،
+          اجرای دقیق طراحی و یادگیری از طریق پروژه‌های واقعی.
         </p>
       </div>
 
       <div className={styles.meta} aria-hidden="true">
         <span>01 / 06</span>
         <span className={styles.scroll} data-hero-scroll>
-          SCROLL <span className={styles.scrollIcon}>↓</span>
+          پیمایش <span className={styles.scrollIcon}>↓</span>
         </span>
       </div>
     </section>
