@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   description:
     "نمونه‌کار آیدین دنیادیده؛ توسعه‌دهنده فرانت‌اند با تمرکز بر رابط‌های کاربری تمیز، طراحی واکنش‌گرا، React و Next.js.",
   applicationName: "نمونه‌کار آیدین دنیادیده",
-  authors: [{ name: "Aidin DNH" }],
-  creator: "Aidin DNH",
+  authors: [{ name: "آیدین دنیادیده" }],
+  creator: "آیدین دنیادیده",
   keywords: ["آیدین دنیادیده", "توسعه‌دهنده فرانت‌اند", "React", "Next.js", "توسعه وب", "نمونه‌کار", "طراحی واکنش‌گرا"],
   alternates: {
     canonical: "/",
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     url: "/",
     title: "آیدین دنیادیده — توسعه‌دهنده فرانت‌اند",
     description:
-      "Portfolio of Aidin DNH, a front-end developer focused on clean interfaces, responsive design, React, and Next.js.",
+      "نمونه‌کار آیدین دنیادیده؛ توسعه‌دهنده فرانت‌اند با تمرکز بر رابط‌های کاربری تمیز، طراحی واکنش‌گرا، React و Next.js.",
     siteName: "نمونه‌کار آیدین دنیادیده",
     locale: "fa_IR",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aidin DNH — Front-End Developer",
+    title: "آیدین دنیادیده — توسعه‌دهنده فرانت‌اند",
     description:
       "Portfolio of Aidin DNH, a front-end developer focused on clean interfaces, responsive design, React, and Next.js.",
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Aidin DNH",
+  name: "آیدین دنیادیده",
   url: siteUrl.toString(),
   jobTitle: "توسعه‌دهنده فرانت‌اند",
   email: "mailto:aidin.dnh@gmail.com",
